@@ -14,6 +14,7 @@
 		DDFF5A0325D036ED003FB040 /* Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A0225D036ED003FB040 /* Restaurants.swift */; };
 		DDFF5A0A25D03F6E003FB040 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A0925D03F6E003FB040 /* Category.swift */; };
 		DDFF5A0F25D04107003FB040 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A0E25D04107003FB040 /* CategoryItem.swift */; };
+		DDFF5A1425D04374003FB040 /* SukhumvitSet.ttc in Resources */ = {isa = PBXBuildFile; fileRef = DDFF5A1325D04374003FB040 /* SukhumvitSet.ttc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		DDFF5A0225D036ED003FB040 /* Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurants.swift; sourceTree = "<group>"; };
 		DDFF5A0925D03F6E003FB040 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DDFF5A0E25D04107003FB040 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryItem.swift; path = "PMU!/Model/CategoryItem.swift"; sourceTree = SOURCE_ROOT; };
+		DDFF5A1325D04374003FB040 /* SukhumvitSet.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = SukhumvitSet.ttc; path = ../../../Desktop/SukhumvitSet.ttc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 		DDFF59D925D0330A003FB040 = {
 			isa = PBXGroup;
 			children = (
+				DDFF5A1125D0427B003FB040 /* Font */,
 				DDFF59E425D0330A003FB040 /* PMU! */,
 				DDFF59E325D0330A003FB040 /* Products */,
 			);
@@ -118,6 +121,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DDFF5A1125D0427B003FB040 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DDFF5A1325D04374003FB040 /* SukhumvitSet.ttc */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -175,6 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDFF5A1425D04374003FB040 /* SukhumvitSet.ttc in Resources */,
 				DDFF59ED25D0330D003FB040 /* Preview Assets.xcassets in Resources */,
 				DDFF59EA25D0330D003FB040 /* Assets.xcassets in Resources */,
 			);
@@ -249,7 +261,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -304,7 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
