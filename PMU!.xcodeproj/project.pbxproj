@@ -15,6 +15,10 @@
 		DDFF5A0A25D03F6E003FB040 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A0925D03F6E003FB040 /* Category.swift */; };
 		DDFF5A1425D04374003FB040 /* SukhumvitSet.ttc in Resources */ = {isa = PBXBuildFile; fileRef = DDFF5A1325D04374003FB040 /* SukhumvitSet.ttc */; };
 		DDFF5A1D25D045CC003FB040 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A1C25D045CC003FB040 /* CategoryItem.swift */; };
+		DDFF5A2225D04706003FB040 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A2125D04706003FB040 /* Home.swift */; };
+		DDFF5A2625D04741003FB040 /* RandomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A2525D04741003FB040 /* RandomView.swift */; };
+		DDFF5A2925D04768003FB040 /* RandomResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A2825D04768003FB040 /* RandomResult.swift */; };
+		DDFF5A3025D047A4003FB040 /* FavouriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A2F25D047A4003FB040 /* FavouriteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		DDFF5A0925D03F6E003FB040 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DDFF5A1325D04374003FB040 /* SukhumvitSet.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = SukhumvitSet.ttc; path = ../../../Desktop/SukhumvitSet.ttc; sourceTree = "<group>"; };
 		DDFF5A1C25D045CC003FB040 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
+		DDFF5A2125D04706003FB040 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		DDFF5A2525D04741003FB040 /* RandomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomView.swift; sourceTree = "<group>"; };
+		DDFF5A2825D04768003FB040 /* RandomResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomResult.swift; sourceTree = "<group>"; };
+		DDFF5A2F25D047A4003FB040 /* FavouriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				DDFF59E725D0330A003FB040 /* ContentView.swift */,
+				DDFF5A2025D046F7003FB040 /* TabView */,
 				DDFF5A1625D04514003FB040 /* Categories */,
 			);
 			path = View;
@@ -111,6 +120,25 @@
 				DDFF5A1C25D045CC003FB040 /* CategoryItem.swift */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		DDFF5A2025D046F7003FB040 /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				DDFF5A2125D04706003FB040 /* Home.swift */,
+				DDFF5A2C25D04780003FB040 /* Random */,
+				DDFF5A2F25D047A4003FB040 /* FavouriteView.swift */,
+			);
+			path = TabView;
+			sourceTree = "<group>";
+		};
+		DDFF5A2C25D04780003FB040 /* Random */ = {
+			isa = PBXGroup;
+			children = (
+				DDFF5A2525D04741003FB040 /* RandomView.swift */,
+				DDFF5A2825D04768003FB040 /* RandomResult.swift */,
+			);
+			path = Random;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,10 +211,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDFF5A2625D04741003FB040 /* RandomView.swift in Sources */,
 				DDFF59E825D0330A003FB040 /* ContentView.swift in Sources */,
 				DDFF5A0325D036ED003FB040 /* Restaurants.swift in Sources */,
 				DDFF59E625D0330A003FB040 /* PMU_App.swift in Sources */,
 				DDFF5A1D25D045CC003FB040 /* CategoryItem.swift in Sources */,
+				DDFF5A2925D04768003FB040 /* RandomResult.swift in Sources */,
+				DDFF5A2225D04706003FB040 /* Home.swift in Sources */,
+				DDFF5A3025D047A4003FB040 /* FavouriteView.swift in Sources */,
 				DDFF5A0A25D03F6E003FB040 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
