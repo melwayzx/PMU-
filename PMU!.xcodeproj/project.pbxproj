@@ -11,8 +11,7 @@
 		DDFF59E825D0330A003FB040 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF59E725D0330A003FB040 /* ContentView.swift */; };
 		DDFF59EA25D0330D003FB040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDFF59E925D0330D003FB040 /* Assets.xcassets */; };
 		DDFF59ED25D0330D003FB040 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDFF59EC25D0330D003FB040 /* Preview Assets.xcassets */; };
-		DDFF59FE25D03547003FB040 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF59FC25D03547003FB040 /* Category.swift */; };
-		DDFF59FF25D03547003FB040 /* Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF59FD25D03547003FB040 /* Restaurants.swift */; };
+		DDFF5A0325D036ED003FB040 /* Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A0225D036ED003FB040 /* Restaurants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +21,7 @@
 		DDFF59E925D0330D003FB040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDFF59EC25D0330D003FB040 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DDFF59EE25D0330D003FB040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DDFF59FC25D03547003FB040 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Category.swift; path = "../../../PICK MEAL UP/PICK MEAL UP/Models/Category.swift"; sourceTree = "<group>"; };
-		DDFF59FD25D03547003FB040 /* Restaurants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Restaurants.swift; path = "../../../PICK MEAL UP/PICK MEAL UP/Models/Restaurants.swift"; sourceTree = "<group>"; };
+		DDFF5A0225D036ED003FB040 /* Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +107,7 @@
 		DDFF59FB25D034EF003FB040 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DDFF59FC25D03547003FB040 /* Category.swift */,
-				DDFF59FD25D03547003FB040 /* Restaurants.swift */,
+				DDFF5A0225D036ED003FB040 /* Restaurants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,10 +181,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDFF59FF25D03547003FB040 /* Restaurants.swift in Sources */,
 				DDFF59E825D0330A003FB040 /* ContentView.swift in Sources */,
+				DDFF5A0325D036ED003FB040 /* Restaurants.swift in Sources */,
 				DDFF59E625D0330A003FB040 /* PMU_App.swift in Sources */,
-				DDFF59FE25D03547003FB040 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
