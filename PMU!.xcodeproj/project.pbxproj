@@ -11,6 +11,8 @@
 		DDFF59E825D0330A003FB040 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF59E725D0330A003FB040 /* ContentView.swift */; };
 		DDFF59EA25D0330D003FB040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDFF59E925D0330D003FB040 /* Assets.xcassets */; };
 		DDFF59ED25D0330D003FB040 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDFF59EC25D0330D003FB040 /* Preview Assets.xcassets */; };
+		DDFF59FE25D03547003FB040 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF59FC25D03547003FB040 /* Category.swift */; };
+		DDFF59FF25D03547003FB040 /* Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF59FD25D03547003FB040 /* Restaurants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		DDFF59E925D0330D003FB040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDFF59EC25D0330D003FB040 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DDFF59EE25D0330D003FB040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDFF59FC25D03547003FB040 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Category.swift; path = "../../../PICK MEAL UP/PICK MEAL UP/Models/Category.swift"; sourceTree = "<group>"; };
+		DDFF59FD25D03547003FB040 /* Restaurants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Restaurants.swift; path = "../../../PICK MEAL UP/PICK MEAL UP/Models/Restaurants.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				DDFF59E525D0330A003FB040 /* PMU_App.swift */,
-				DDFF59E725D0330A003FB040 /* ContentView.swift */,
+				DDFF59F525D03458003FB040 /* View */,
+				DDFF59FB25D034EF003FB040 /* Model */,
 				DDFF59E925D0330D003FB040 /* Assets.xcassets */,
 				DDFF59EE25D0330D003FB040 /* Info.plist */,
 				DDFF59EB25D0330D003FB040 /* Preview Content */,
@@ -67,6 +72,47 @@
 				DDFF59EC25D0330D003FB040 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DDFF59F525D03458003FB040 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDFF59E725D0330A003FB040 /* ContentView.swift */,
+				DDFF59F925D034BA003FB040 /* Nearby */,
+				DDFF59F725D034A0003FB040 /* Categories */,
+				DDFF59F625D03473003FB040 /* Popular Restaurant */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDFF59F625D03473003FB040 /* Popular Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Popular Restaurant";
+			sourceTree = "<group>";
+		};
+		DDFF59F725D034A0003FB040 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		DDFF59F925D034BA003FB040 /* Nearby */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Nearby;
+			sourceTree = "<group>";
+		};
+		DDFF59FB25D034EF003FB040 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDFF59FC25D03547003FB040 /* Category.swift */,
+				DDFF59FD25D03547003FB040 /* Restaurants.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +184,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDFF59FF25D03547003FB040 /* Restaurants.swift in Sources */,
 				DDFF59E825D0330A003FB040 /* ContentView.swift in Sources */,
 				DDFF59E625D0330A003FB040 /* PMU_App.swift in Sources */,
+				DDFF59FE25D03547003FB040 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
