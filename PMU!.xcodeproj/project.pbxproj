@@ -108,6 +108,7 @@
 			children = (
 				DDFF59E725D0330A003FB040 /* ContentView.swift */,
 				DDFF5A4E25D0622C003FB040 /* Button */,
+				DDFF5A2C25D04780003FB040 /* Random */,
 				DDFF5A4525D05FF3003FB040 /* Popular */,
 				DDFF5A3925D05DA4003FB040 /* Restaurants */,
 				DDFF5A2025D046F7003FB040 /* TabView */,
@@ -147,7 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				DDFF5A2125D04706003FB040 /* Home.swift */,
-				DDFF5A2C25D04780003FB040 /* Random */,
 				DDFF5A2F25D047A4003FB040 /* FavouriteView.swift */,
 			);
 			path = TabView;

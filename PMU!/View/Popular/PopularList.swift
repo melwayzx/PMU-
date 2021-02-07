@@ -13,11 +13,10 @@ struct PopularList: View {
     var body: some View {
         
         VStack(alignment: .leading)  {
-            Text("ร้านอาหารยอดนิยม").font(.custom("Sukhumvit Set",size: 18, relativeTo: .headline)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25)).bold().padding(.leading, 15)
-                .padding(.top, 5)
+            Text("ร้านอาหารยอดนิยม").font(.custom("Sukhumvit Set",size: 18, relativeTo: .headline)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25)).bold().padding(.top, 5)
             
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(alignment: .top, spacing: 0) {
+                HStack(alignment: .top, spacing: 5) {
                     ForEach(self.restaurant, id: \.name){item in
                         PopularItem(item : item)
                     }

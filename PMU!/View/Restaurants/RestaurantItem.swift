@@ -53,7 +53,7 @@ struct RestaurantItem: View {
             }
             
         }
-        .frame(width: singleWidth, height: 136, alignment: .leading) .cornerRadius(10)
+        .frame(width: singleWidth-40, height: 136, alignment: .leading) .cornerRadius(10)
         .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke(Color(red: 0.855, green: 0.855, blue: 0.855, opacity: 0.5), lineWidth: 0.5))
     }

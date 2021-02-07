@@ -10,30 +10,31 @@ import SwiftUI
 struct PopularItem: View {
 
     var item : Restaurants
+    let singleWidth:CGFloat = UIScreen.main.bounds.width
+    
     var body: some View {
         VStack(alignment: .leading){
             Image("item.image").resizable()
-                .frame(width: 136,height: 150)
+                .frame(width: singleWidth/3,height: 150)
                 .cornerRadius(10)
                 .overlay(RoundedRectangle(cornerRadius: 10)
                             .stroke(Color(red: 0.855, green: 0.855, blue: 0.855, opacity: 0.5), lineWidth: 0.5))
             
             
-            Text(item.name).fontWeight(.semibold).font(.custom("Sukhumvit Set", size: 14)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25)).lineLimit(1)
-//                                .multilineTextAlignment(.leading)
+            Text(item.name).fontWeight(.semibold).font(.custom("Sukhumvit Set", size: 16, relativeTo: .footnote)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25))
                 
-                Text(item.address).fontWeight(.regular).font(.custom("Sukhumvit Set", size: 12)).foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1)) .lineLimit(1)
+                Text(item.address).fontWeight(.regular).font(.custom("Sukhumvit Set", size: 14 , relativeTo: .caption)).foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1)) .lineLimit(1)
                 
             HStack{
-                    Image(systemName: "star.fill").foregroundColor(.yellow).font(.system(size: 12, weight: .regular))
+                    Image(systemName: "star.fill").foregroundColor(.yellow).font(.system(size: 14, weight: .regular))
                     
-                    Text(String(format: "%.1f" ,item.star_score)).font(.custom("Sukhumvit Set", size: 12)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
+                Text(String(format: "%.1f" ,item.star_score)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
                     
-                    Text("\(item.review_score) รีวิว").font(.custom("Sukhumvit Set", size: 12)).foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1))
+                Text("\(item.review_score) รีวิว").foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1))
                     
-            }
+            }.font(.custom("Sukhumvit Set", size: 14 , relativeTo: .caption))
                 
-        }.frame(width:136 , height: 220).padding(6)
+        }.frame(width:singleWidth/3 , height: 230).padding(.trailing,10)
     }
 }
 

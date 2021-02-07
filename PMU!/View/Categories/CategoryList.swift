@@ -15,7 +15,7 @@ struct CategoryList: View {
         
         
         VStack(alignment: .leading){
-            Text("ประเภทร้านอาหาร").font(.custom("Sukhumvit Set", size: 16)).fontWeight(.semibold).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25))
+            Text("ประเภทร้านอาหาร").font(.custom("Sukhumvit Set",size: 18, relativeTo: .headline)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25)).bold()
             
             
             
