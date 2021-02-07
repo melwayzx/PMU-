@@ -19,6 +19,11 @@
 		DDFF5A2625D04741003FB040 /* RandomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A2525D04741003FB040 /* RandomView.swift */; };
 		DDFF5A2925D04768003FB040 /* RandomResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A2825D04768003FB040 /* RandomResult.swift */; };
 		DDFF5A3025D047A4003FB040 /* FavouriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A2F25D047A4003FB040 /* FavouriteView.swift */; };
+		DDFF5A3325D05C18003FB040 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A3225D05C18003FB040 /* CategoryList.swift */; };
+		DDFF5A3625D05C87003FB040 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A3525D05C87003FB040 /* CategoryView.swift */; };
+		DDFF5A3B25D05DB6003FB040 /* RestaurantItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A3A25D05DB6003FB040 /* RestaurantItem.swift */; };
+		DDFF5A3F25D05E59003FB040 /* RestaurantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A3E25D05E59003FB040 /* RestaurantList.swift */; };
+		DDFF5A4225D05E99003FB040 /* RestaurantDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A4125D05E99003FB040 /* RestaurantDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,11 @@
 		DDFF5A2525D04741003FB040 /* RandomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomView.swift; sourceTree = "<group>"; };
 		DDFF5A2825D04768003FB040 /* RandomResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomResult.swift; sourceTree = "<group>"; };
 		DDFF5A2F25D047A4003FB040 /* FavouriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteView.swift; sourceTree = "<group>"; };
+		DDFF5A3225D05C18003FB040 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
+		DDFF5A3525D05C87003FB040 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		DDFF5A3A25D05DB6003FB040 /* RestaurantItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantItem.swift; sourceTree = "<group>"; };
+		DDFF5A3E25D05E59003FB040 /* RestaurantList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantList.swift; sourceTree = "<group>"; };
+		DDFF5A4125D05E99003FB040 /* RestaurantDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				DDFF59E725D0330A003FB040 /* ContentView.swift */,
+				DDFF5A3925D05DA4003FB040 /* Restaurants */,
 				DDFF5A2025D046F7003FB040 /* TabView */,
 				DDFF5A1625D04514003FB040 /* Categories */,
 			);
@@ -118,6 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				DDFF5A1C25D045CC003FB040 /* CategoryItem.swift */,
+				DDFF5A3225D05C18003FB040 /* CategoryList.swift */,
+				DDFF5A3525D05C87003FB040 /* CategoryView.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -139,6 +152,16 @@
 				DDFF5A2825D04768003FB040 /* RandomResult.swift */,
 			);
 			path = Random;
+			sourceTree = "<group>";
+		};
+		DDFF5A3925D05DA4003FB040 /* Restaurants */ = {
+			isa = PBXGroup;
+			children = (
+				DDFF5A3A25D05DB6003FB040 /* RestaurantItem.swift */,
+				DDFF5A3E25D05E59003FB040 /* RestaurantList.swift */,
+				DDFF5A4125D05E99003FB040 /* RestaurantDetail.swift */,
+			);
+			path = Restaurants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,13 +235,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDFF5A2625D04741003FB040 /* RandomView.swift in Sources */,
+				DDFF5A4225D05E99003FB040 /* RestaurantDetail.swift in Sources */,
 				DDFF59E825D0330A003FB040 /* ContentView.swift in Sources */,
 				DDFF5A0325D036ED003FB040 /* Restaurants.swift in Sources */,
 				DDFF59E625D0330A003FB040 /* PMU_App.swift in Sources */,
 				DDFF5A1D25D045CC003FB040 /* CategoryItem.swift in Sources */,
+				DDFF5A3625D05C87003FB040 /* CategoryView.swift in Sources */,
 				DDFF5A2925D04768003FB040 /* RandomResult.swift in Sources */,
+				DDFF5A3B25D05DB6003FB040 /* RestaurantItem.swift in Sources */,
 				DDFF5A2225D04706003FB040 /* Home.swift in Sources */,
+				DDFF5A3325D05C18003FB040 /* CategoryList.swift in Sources */,
 				DDFF5A3025D047A4003FB040 /* FavouriteView.swift in Sources */,
+				DDFF5A3F25D05E59003FB040 /* RestaurantList.swift in Sources */,
 				DDFF5A0A25D03F6E003FB040 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
