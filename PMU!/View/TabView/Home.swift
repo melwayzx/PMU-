@@ -31,7 +31,7 @@ struct Home: View {
                         CategoryList().padding(20)
                         PopularList().padding(.leading,20)
                         VStack(alignment: .leading){
-                            Text("ร้านอาหารใกล้คุณ").font(.custom("Sukhumvit Set",size: 18, relativeTo: .headline)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25)).bold().padding(.top, 5)
+                            Text("ร้านอาหารใกล้คุณ").font(.custom("Sukhumvit Set",size: 18, relativeTo: .headline)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25)).bold().padding(.top, 10)
                             RestaurantList()
                             
                         }

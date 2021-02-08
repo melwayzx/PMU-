@@ -21,18 +21,18 @@ struct PopularItem: View {
                             .stroke(Color(red: 0.855, green: 0.855, blue: 0.855, opacity: 0.5), lineWidth: 0.5))
             
             
-            Text(item.name).fontWeight(.semibold).font(.custom("Sukhumvit Set", size: 16, relativeTo: .footnote)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25))
+            Text(item.name).fontWeight(.semibold).font(.custom("Sukhumvit Set", size: 14, relativeTo: .footnote)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25))
                 
-                Text(item.address).fontWeight(.regular).font(.custom("Sukhumvit Set", size: 14 , relativeTo: .caption)).foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1)) .lineLimit(1)
+                Text(item.address).fontWeight(.regular).font(.custom("Sukhumvit Set", size: 12 , relativeTo: .caption)).foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1)) .lineLimit(1)
                 
             HStack{
-                    Image(systemName: "star.fill").foregroundColor(.yellow).font(.system(size: 14, weight: .regular))
+                    Image(systemName: "star.fill").foregroundColor(.yellow).font(.system(size: 12, weight: .regular))
                     
                 Text(String(format: "%.1f" ,item.star_score)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
                     
                 Text("\(item.review_score) รีวิว").foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1))
                     
-            }.font(.custom("Sukhumvit Set", size: 14 , relativeTo: .caption))
+            }.font(.custom("Sukhumvit Set", size: 12 , relativeTo: .caption))
                 
         }.frame(width:singleWidth/3 , height: 230).padding(.trailing,10)
     }

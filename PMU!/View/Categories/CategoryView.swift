@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct CategoryView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @GestureState private var dragOffset = CGSize.zero
@@ -15,6 +16,8 @@ struct CategoryView: View {
     
     var type_name : Types
     let count = Types.all().count
+    
+    
     
     var body: some View {
         
@@ -33,7 +36,7 @@ struct CategoryView: View {
                     .clipped()
                 VStack(alignment:.leading){
                     Text("พบผลลัพธ์ \(count) รายการ").bold()
-//                    RestaurantList()
+                    RestaurantList()
                 }
                         
                         
@@ -45,20 +48,11 @@ struct CategoryView: View {
                                 Image(systemName: "chevron.left")
                                     .aspectRatio(contentMode: .fit)
                                     .foregroundColor(.white)
-//                                Text("หน้าหลัก").font(.custom("Sukhumvit Set", size: 16)).fontWeight(.semibold).foregroundColor(Color(.white))
                             }
                         })
                     
                     
                 }.font(.custom("Sukhumvit Set", size: 14 )).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25))
-                
-                //        .gesture(DragGesture().updating($dragOffset, body: { (value, state, transaction) in
-                //
-                //            if(value.startLocation.x < 100 && value.translation.width > 100) {
-                //                self.mode.wrappedValue.dismiss()
-                //            }
-                //
-                //        }))
             
         }.edgesIgnoringSafeArea(.top)
     }

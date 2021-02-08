@@ -57,6 +57,7 @@ struct RestaurantDetail: View {
     private var numberOfImage : Int
     private var starScore : Double
     
+    
     init(restaurant : Restaurants) {
         UINavigationBar.appearance().titleTextAttributes = [
             .font : UIFont(name: "Sukhumvit Set", size: 16)!]
@@ -64,8 +65,7 @@ struct RestaurantDetail: View {
         self.numberOfImage = restaurant.image.count
         self.starScore = restaurant.star_score
     }
-    
-    
+
     let screenHeight = UIScreen.main.bounds.height
     
     var btnBack : some View { Button(action: {
@@ -77,16 +77,30 @@ struct RestaurantDetail: View {
                 .foregroundColor(.black)
         }
     }
-    }
+    }  
     
     var body: some View {
         
+        ScrollView{
         VStack{
             Image(restaurant.image[1]).resizable().scaledToFill().frame(height: 300)
             ZStack(alignment: .topLeading ){
                 RoundedCorners(color: .white, tl: 18, tr: 18, bl: 0, br: 0)
                 VStack(alignment: .leading){
+                    HStack(alignment: .firstTextBaseline){
                     Text(restaurant.name) .font(.custom("Sukhumvit Set", size: 24 )).bold().foregroundColor(Color(red: 0, green: 0.133, blue: 0.251)).multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/).frame(width: 240, alignment: .leading)
+                        
+                        Spacer()
+                        
+//                        FavouriteButton(isSet: restaurant.isFavourite )
+//                        if  restaurant.isFavourite {
+//                            Image(systemName: "heart.fill").foregroundColor(.red).font(.title)
+//                        }else{
+//                            Image(systemName: "heart").foregroundColor(.red).font(.title)
+//                        }
+                        
+//                        Toggle(isSet: )
+                    }
                     
                     Text("อาหารไทย").font(.custom("Sukhumvit Set", size: 14 )).foregroundColor(Color(red: 0.451, green: 0.451, blue: 0.451, opacity : 0.69))
                     
@@ -147,9 +161,10 @@ struct RestaurantDetail: View {
                     //// map
                     
                 
-            }.padding().font(.custom("Sukhumvit Set", size: 16 ))
+            }.padding().font(.custom("Sukhumvit Set", size: 16))
             
             
+        }
         }
     }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
 }

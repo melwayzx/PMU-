@@ -18,9 +18,13 @@ struct RestaurantList: View {
                 NavigationLink(
                     destination: RestaurantDetail(restaurant: item)){
                     RestaurantItem(item: item)
+                   
                 }
             }
+            Spacer()
+                    .frame(height: 20)
     }
+        
     }
 }
 
