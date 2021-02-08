@@ -32,7 +32,7 @@ struct ContentView: View {
                 }
                 .tag(Tab.home)
             
-            Text("แผนที่")
+            GoogleMapView()
                 .tabItem {
                     Image(systemName: "map.fill")
                     Text("ร้านใกล้ฉัน")
