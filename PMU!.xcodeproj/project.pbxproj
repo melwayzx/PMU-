@@ -3,18 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		DDDE1F0925E69AED00598867 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDE1F0825E69AED00598867 /* Response.swift */; };
+		9A1A513CCFDDF85EE69EBD6E /* Pods_PMU_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACA6928D8C6759AD61F9FE1 /* Pods_PMU_.framework */; };
+		B7D5CB7925D13D8E00F02426 /* SukhumvitSet.ttc in Resources */ = {isa = PBXBuildFile; fileRef = B7D5CB7825D13D8E00F02426 /* SukhumvitSet.ttc */; };
+		B7D5CB8025D13E5400F02426 /* GoogleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D5CB7F25D13E5400F02426 /* GoogleMapView.swift */; };
+		B7D5CB8325D13E7700F02426 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D5CB8225D13E7700F02426 /* LocationManager.swift */; };
 		DDFF59E625D0330A003FB040 /* PMU_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF59E525D0330A003FB040 /* PMU_App.swift */; };
 		DDFF59E825D0330A003FB040 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF59E725D0330A003FB040 /* ContentView.swift */; };
 		DDFF59EA25D0330D003FB040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDFF59E925D0330D003FB040 /* Assets.xcassets */; };
 		DDFF59ED25D0330D003FB040 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDFF59EC25D0330D003FB040 /* Preview Assets.xcassets */; };
 		DDFF5A0325D036ED003FB040 /* Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A0225D036ED003FB040 /* Restaurants.swift */; };
 		DDFF5A0A25D03F6E003FB040 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A0925D03F6E003FB040 /* Category.swift */; };
-		DDFF5A1425D04374003FB040 /* SukhumvitSet.ttc in Resources */ = {isa = PBXBuildFile; fileRef = DDFF5A1325D04374003FB040 /* SukhumvitSet.ttc */; };
 		DDFF5A1D25D045CC003FB040 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A1C25D045CC003FB040 /* CategoryItem.swift */; };
 		DDFF5A2225D04706003FB040 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A2125D04706003FB040 /* Home.swift */; };
 		DDFF5A2625D04741003FB040 /* RandomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF5A2525D04741003FB040 /* RandomView.swift */; };
@@ -32,6 +35,11 @@
 
 /* Begin PBXFileReference section */
 		DDDE1F0825E69AED00598867 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		07261335AE9C43875CA4DA11 /* Pods-PMU!.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMU!.debug.xcconfig"; path = "Target Support Files/Pods-PMU!/Pods-PMU!.debug.xcconfig"; sourceTree = "<group>"; };
+		8ACA6928D8C6759AD61F9FE1 /* Pods_PMU_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PMU_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7D5CB7825D13D8E00F02426 /* SukhumvitSet.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = SukhumvitSet.ttc; path = "../../../Downloads/PICK MEAL UP/Font/SukhumvitSet.ttc"; sourceTree = "<group>"; };
+		B7D5CB7F25D13E5400F02426 /* GoogleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapView.swift; sourceTree = "<group>"; };
+		B7D5CB8225D13E7700F02426 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DDFF59E225D0330A003FB040 /* PMU!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PMU!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFF59E525D0330A003FB040 /* PMU_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMU_App.swift; sourceTree = "<group>"; };
 		DDFF59E725D0330A003FB040 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,7 +48,6 @@
 		DDFF59EE25D0330D003FB040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDFF5A0225D036ED003FB040 /* Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurants.swift; sourceTree = "<group>"; };
 		DDFF5A0925D03F6E003FB040 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		DDFF5A1325D04374003FB040 /* SukhumvitSet.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = SukhumvitSet.ttc; path = ../../../Desktop/SukhumvitSet.ttc; sourceTree = "<group>"; };
 		DDFF5A1C25D045CC003FB040 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		DDFF5A2125D04706003FB040 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		DDFF5A2525D04741003FB040 /* RandomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomView.swift; sourceTree = "<group>"; };
@@ -54,6 +61,7 @@
 		DDFF5A4625D06005003FB040 /* PopularItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularItem.swift; sourceTree = "<group>"; };
 		DDFF5A4A25D06063003FB040 /* PopularList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularList.swift; sourceTree = "<group>"; };
 		DDFF5A4F25D0625B003FB040 /* FavouriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteButton.swift; sourceTree = "<group>"; };
+		F47F05E0BFEB5E788EED7599 /* Pods-PMU!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMU!.release.xcconfig"; path = "Target Support Files/Pods-PMU!/Pods-PMU!.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,18 +69,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A1A513CCFDDF85EE69EBD6E /* Pods_PMU_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		267363A8EEFB4505FBFCB387 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				07261335AE9C43875CA4DA11 /* Pods-PMU!.debug.xcconfig */,
+				F47F05E0BFEB5E788EED7599 /* Pods-PMU!.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		69F710C4C0B5E0A88355B20B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8ACA6928D8C6759AD61F9FE1 /* Pods_PMU_.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DDFF59D925D0330A003FB040 = {
 			isa = PBXGroup;
 			children = (
 				DDFF5A1125D0427B003FB040 /* Font */,
 				DDFF59E425D0330A003FB040 /* PMU! */,
 				DDFF59E325D0330A003FB040 /* Products */,
+				267363A8EEFB4505FBFCB387 /* Pods */,
+				69F710C4C0B5E0A88355B20B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,7 +160,7 @@
 		DDFF5A1125D0427B003FB040 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				DDFF5A1325D04374003FB040 /* SukhumvitSet.ttc */,
+				B7D5CB7825D13D8E00F02426 /* SukhumvitSet.ttc */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -152,6 +180,8 @@
 			children = (
 				DDFF5A2125D04706003FB040 /* Home.swift */,
 				DDFF5A2F25D047A4003FB040 /* FavouriteView.swift */,
+				B7D5CB7F25D13E5400F02426 /* GoogleMapView.swift */,
+				B7D5CB8225D13E7700F02426 /* LocationManager.swift */,
 			);
 			path = TabView;
 			sourceTree = "<group>";
@@ -199,9 +229,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDFF59F125D0330D003FB040 /* Build configuration list for PBXNativeTarget "PMU!" */;
 			buildPhases = (
+				31D049B0021DE5A221DDF66F /* [CP] Check Pods Manifest.lock */,
 				DDFF59DE25D0330A003FB040 /* Sources */,
 				DDFF59DF25D0330A003FB040 /* Frameworks */,
 				DDFF59E025D0330A003FB040 /* Resources */,
+				13C000A9D11180AD8C542B4E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -249,7 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDFF5A1425D04374003FB040 /* SukhumvitSet.ttc in Resources */,
+				B7D5CB7925D13D8E00F02426 /* SukhumvitSet.ttc in Resources */,
 				DDFF59ED25D0330D003FB040 /* Preview Assets.xcassets in Resources */,
 				DDFF59EA25D0330D003FB040 /* Assets.xcassets in Resources */,
 			);
@@ -257,11 +289,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		13C000A9D11180AD8C542B4E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PMU!/Pods-PMU!-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PMU!/Pods-PMU!-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PMU!/Pods-PMU!-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		31D049B0021DE5A221DDF66F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PMU!-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DDFF59DE25D0330A003FB040 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7D5CB8025D13E5400F02426 /* GoogleMapView.swift in Sources */,
 				DDFF5A2625D04741003FB040 /* RandomView.swift in Sources */,
 				DDFF5A4225D05E99003FB040 /* RestaurantDetail.swift in Sources */,
 				DDFF59E825D0330A003FB040 /* ContentView.swift in Sources */,
@@ -279,6 +354,7 @@
 				DDFF5A3325D05C18003FB040 /* CategoryList.swift in Sources */,
 				DDFF5A3025D047A4003FB040 /* FavouriteView.swift in Sources */,
 				DDFF5A3F25D05E59003FB040 /* RestaurantList.swift in Sources */,
+				B7D5CB8325D13E7700F02426 /* LocationManager.swift in Sources */,
 				DDFF5A0A25D03F6E003FB040 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +480,7 @@
 		};
 		DDFF59F225D0330D003FB040 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07261335AE9C43875CA4DA11 /* Pods-PMU!.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -417,7 +494,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Melwayz.PMU-";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DanurujP.PMU-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -426,6 +503,7 @@
 		};
 		DDFF59F325D0330D003FB040 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F47F05E0BFEB5E788EED7599 /* Pods-PMU!.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -439,7 +517,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Melwayz.PMU-";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DanurujP.PMU-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
