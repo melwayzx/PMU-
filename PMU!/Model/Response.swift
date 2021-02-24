@@ -21,7 +21,7 @@ struct result: Decodable {
     var photos : [photos]?
     var price_level: Int
     var rating: Float
-        var user_ratings_total : Int
+    var user_ratings_total : Int
     var reviews : [reviews]?
 
 }
