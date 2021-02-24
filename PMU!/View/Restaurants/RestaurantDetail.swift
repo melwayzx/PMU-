@@ -49,8 +49,7 @@ struct RoundedCorners: View {
 
 
 struct RestaurantDetail: View {
-    
-    @State private var restaurant: Result?
+
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
  //   private var restaurant : Restaurants
 //    private var numberOfImage : Int
@@ -87,7 +86,7 @@ struct RestaurantDetail: View {
                 RoundedCorners(color: .white, tl: 18, tr: 18, bl: 0, br: 0)
                 VStack(alignment: .leading){
                     HStack(alignment: .firstTextBaseline){
-                    Text(restaurant.name) .font(.custom("Sukhumvit Set", size: 24 )).bold().foregroundColor(Color(red: 0, green: 0.133, blue: 0.251)).multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/).frame(width: 240, alignment: .leading)
+//                    Text(restaurant.name) .font(.custom("Sukhumvit Set", size: 24 )).bold().foregroundColor(Color(red: 0, green: 0.133, blue: 0.251)).multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/).frame(width: 240, alignment: .leading)
                         
                         Spacer()
                         
@@ -111,50 +110,50 @@ struct RestaurantDetail: View {
                         Image(systemName: "star.fill").foregroundColor(.yellow)
                         Image(systemName: "star.fill")
                         
-                        Text(String(format: "%.1f" ,restaurant!.result.rating ?? "ไม่มีคะแนน"))
-                        
-                        Text("( \(restaurant!.result.user_ratings_total ?? 0) รีวิว )")
+//                        Text(String(format: "%.1f" ,restaurant!.result.rating ?? "ไม่มีคะแนน"))
+//
+//                        Text("( \(restaurant!.result.user_ratings_total ?? 0) รีวิว )")
                         
                     }.font(.custom("Sukhumvit Set", size: 14)).foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1)).padding(.bottom,8)
                     
                     
                     
-                    
-                    Text("ที่อยู่ร้านอาหาร").foregroundColor(Color(red: 0, green: 0.133, blue: 0.251)).bold()
-                    Text(restaurant!.result.formatted_address ?? "").foregroundColor(Color(red: 0.412, green: 0.431, blue: 0.451)).lineLimit(3).frame(width: 240, alignment: .leading)
-                    
+//
+//                    Text("ที่อยู่ร้านอาหาร").foregroundColor(Color(red: 0, green: 0.133, blue: 0.251)).bold()
+//                    Text(restaurant!.result.formatted_address ?? "").foregroundColor(Color(red: 0.412, green: 0.431, blue: 0.451)).lineLimit(3).frame(width: 240, alignment: .leading)
+//
                     Text("เวลาเปิด").foregroundColor(Color(red: 0, green: 0.133, blue: 0.251)).bold()
                     HStack{
-                        Text("\(restaurant!.result.opening_hours.open_now == true ? "เปิดอยู่" : "ปิด")").foregroundColor(restaurant!.result.opening_hours.open_now == true ? Color(red: 0.421, green: 0.754, blue: 0.514) : Color(.red)).bold()
-                        
-                        Text("restaurant.opening_time").foregroundColor(Color(red: 0.412, green: 0.431, blue: 0.451))
+//                        Text("\(restaurant!.result.opening_hours.open_now == true ? "เปิดอยู่" : "ปิด")").foregroundColor(restaurant!.result.opening_hours.open_now == true ? Color(red: 0.421, green: 0.754, blue: 0.514) : Color(.red)).bold()
+//
+//                        Text("restaurant.opening_time").foregroundColor(Color(red: 0.412, green: 0.431, blue: 0.451))
                     }
                     HStack{
                         VStack(alignment: .leading){
-                            Text("เบอร์โทรศัพท์").foregroundColor(Color(red: 0, green: 0.133, blue: 0.251)).bold()
-                            Text(restaurant!.result.formatted_phone_number).foregroundColor(Color(red: 0.412, green: 0.431, blue: 0.451))
+//                            Text("เบอร์โทรศัพท์").foregroundColor(Color(red: 0, green: 0.133, blue: 0.251)).bold()
+//                            Text(restaurant!.result.formatted_phone_number).foregroundColor(Color(red: 0.412, green: 0.431, blue: 0.451))
                         }
                         Spacer()
-                        
-                        Button(action:{
-                            let dash = CharacterSet(charactersIn: "-")
-
-                                let cleanString =
-                                    restaurant!.result.formatted_phone_number.trimmingCharacters(in: dash)
-
-                                let tel = "tel://"
-                            let formattedString = tel + cleanString
-                                let url: NSURL = URL(string: formattedString)! as NSURL
-
-                                UIApplication.shared.open(url as URL)
-                        } , label: {
-                            HStack{
-                                Image(systemName: "phone.fill")
-                                Text("ติดต่อร้าน").bold()
-                            }.padding(8).foregroundColor(.white)
-                            .background(Color(red: 0, green: 0.133, blue: 0.251))
-                            .cornerRadius(40).frame(width: 150, height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        })
+//
+//                        Button(action:{
+//                            let dash = CharacterSet(charactersIn: "-")
+//
+//                                let cleanString =
+//                                    restaurant!.result.formatted_phone_number.trimmingCharacters(in: dash)
+//
+//                                let tel = "tel://"
+//                            let formattedString = tel + cleanString
+//                                let url: NSURL = URL(string: formattedString)! as NSURL
+//
+//                                UIApplication.shared.open(url as URL)
+//                        } , label: {
+//                            HStack{
+//                                Image(systemName: "phone.fill")
+//                                Text("ติดต่อร้าน").bold()
+//                            }.padding(8).foregroundColor(.white)
+//                            .background(Color(red: 0, green: 0.133, blue: 0.251))
+//                            .cornerRadius(40).frame(width: 150, height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                        })
                 }
                 
                     //// map
@@ -166,27 +165,6 @@ struct RestaurantDetail: View {
         }
         }
     }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-}
-
-private func loadData() {
-    guard let url = URL(string: "https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJufQFlS6Z4jARChytiAWhVWY&fields=name,rating,review,user_ratings_total,price_level,formatted_phone_number,formatted_address,geometry,opening_hours,photo&language=th&key=AIzaSyB2zZ0AQ4y2zLNXljvnhOA1qLku4HPAfb8")
-    else {
-        return
-    }
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                guard let data = data
-                else {
-                    return
-                }
-                if let decodedData = try? JSONDecoder().decode(Result.self, from: data){
-                    print(decodedData)
-                    DispatchQueue.main.async {
-                        self.restaurant = decodedData
-                                        }
-                }
-    
-            }.resume()
-    
 }
 }
 
