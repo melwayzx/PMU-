@@ -190,25 +190,6 @@ private func loadData() {
 }
 }
 
-
-struct Result: Decodable {
-var result: result
-}
-
-struct result: Decodable {
-    var name: String
-    var formatted_address: String?
-    var formatted_phone_number: String
-    var price_level: Int?
-    var rating: Float?
-    var status: String?
-    var opening_hours : opening_hours
-    var user_ratings_total : Int?
-}
-
-struct opening_hours : Decodable{
-    var open_now : Bool
-}
 struct RestaurantDetail_Previews: PreviewProvider {
     static var previews: some View {
         RestaurantDetail(restaurant: Restaurants.all()[0])
