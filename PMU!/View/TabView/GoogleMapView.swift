@@ -7,6 +7,7 @@
 
 import Foundation
 import GoogleMaps
+import GooglePlaces
 import SwiftUI
 import MapKit
 import UIKit
@@ -19,6 +20,8 @@ struct GoogleMapView: UIViewRepresentable {
     
     // 2
     func makeUIView(context: Self.Context) -> GMSMapView {
+        GMSServices.provideAPIKey("AIzaSyDpMwytCJjQzbK-UsscFycBVsOwR-08jTY")
+        GMSPlacesClient.provideAPIKey("AIzaSyDpMwytCJjQzbK-UsscFycBVsOwR-08jTY")
         let camera = GMSCameraPosition.camera(withLatitude: 13.74151, longitude: 100.52547, zoom: zoom)
     //    let camera = GMSCameraPosition.camera(withLatitude: locationManager.latitude, longitude: locationManager.longitude, zoom: zoom)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)

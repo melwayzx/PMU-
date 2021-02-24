@@ -24,7 +24,8 @@ struct ContentView: View {
     
     
     var body: some View {
-        
+        VStack{
+        Text(res?.name ?? "xxxxx" )
         TabView(selection: $selection) {
             Home()
                 .tabItem {
@@ -56,6 +57,7 @@ struct ContentView: View {
                 .tag(Tab.fav)
         } .accentColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1.00))
         
+        }.onAppear(perform:loadData)
     }
     
     private func loadData() {
@@ -72,6 +74,7 @@ struct ContentView: View {
 //                        print(decodedData)
                         DispatchQueue.main.async {
                             self.res = decodedData.result
+                            print(res!)
                                             }
                     }
 
