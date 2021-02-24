@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DDDE1F0925E69AED00598867 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDE1F0825E69AED00598867 /* Response.swift */; };
 		DDFF59E625D0330A003FB040 /* PMU_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF59E525D0330A003FB040 /* PMU_App.swift */; };
 		DDFF59E825D0330A003FB040 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF59E725D0330A003FB040 /* ContentView.swift */; };
 		DDFF59EA25D0330D003FB040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDFF59E925D0330D003FB040 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DDDE1F0825E69AED00598867 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		DDFF59E225D0330A003FB040 /* PMU!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PMU!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFF59E525D0330A003FB040 /* PMU_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMU_App.swift; sourceTree = "<group>"; };
 		DDFF59E725D0330A003FB040 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				DDFF5A0225D036ED003FB040 /* Restaurants.swift */,
+				DDDE1F0825E69AED00598867 /* Response.swift */,
 				DDFF5A0925D03F6E003FB040 /* Category.swift */,
 			);
 			path = Model;
@@ -263,6 +266,7 @@
 				DDFF5A4225D05E99003FB040 /* RestaurantDetail.swift in Sources */,
 				DDFF59E825D0330A003FB040 /* ContentView.swift in Sources */,
 				DDFF5A4725D06005003FB040 /* PopularItem.swift in Sources */,
+				DDDE1F0925E69AED00598867 /* Response.swift in Sources */,
 				DDFF5A0325D036ED003FB040 /* Restaurants.swift in Sources */,
 				DDFF5A5025D0625B003FB040 /* FavouriteButton.swift in Sources */,
 				DDFF59E625D0330A003FB040 /* PMU_App.swift in Sources */,
