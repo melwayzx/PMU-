@@ -38,6 +38,19 @@ extension Restaurants{
             Restaurants(name: "10" ,  review_score : "10" , star_score: 4.0 , address: "ที่อยู่ร้าน"  , image: ["thai-food","fast-food","buffet"], status: true ,opening_time: "เวลาเปิด/ปิด" , contact : "เบอร์โทรติดต่อ" ,isFavourite : true),
         ]
     }
+    
+    
 }
 
+
+struct PlaceID {
+    let place_id : String
+}
+
+
+extension PlaceID{
+    static func getPlaceID() -> [PlaceID] {
+        return [PlaceID(place_id: "ChIJt3-3sC6Z4jAR01CFiBVAYkU"), PlaceID(place_id: "ChIJMU_ZUymZ4jARJElgUCpqVrI")]
+    }
+}
 
