@@ -8,23 +8,32 @@
 import SwiftUI
 
 struct RestaurantList: View {
-
-    let restaurant = Restaurants.all()
-
+    
+    //    let restaurant = Restaurants.all()
+    
+    let place_id = PlaceID.getPlaceID()
+    
     var body: some View {
         VStack(spacing: 10){
-            
-            ForEach(self.restaurant, id: \.name){item in
-                NavigationLink(
-                    destination: RestaurantDetail(restaurant: item)){
-                    RestaurantItem(item: item)
-                   
-                }
+            //
+            ForEach(self.place_id , id: \.place_id){item in
+                RestaurantItem(place_id : item.place_id)
             }
+            
+            
+            
+            //            ForEach(self.restaurant, id: \.name){item in
+            //                NavigationLink(
+            //                    destination: RestaurantDetail(restaurant: item)){
+            //                    RestaurantItem(item: item)
+            //
+            //                }
+            //            }
             Spacer()
-                    .frame(height: 20)
-    }
-        
+                .frame(height: 20)
+            
+            
+        }
     }
 }
 
