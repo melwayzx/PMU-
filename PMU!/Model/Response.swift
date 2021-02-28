@@ -7,13 +7,25 @@
 
 import Foundation
 
+struct Payload : Decodable{
+    var name: String
+    var formatted_address: String?
+    var formatted_phone_number: String
+    var opening_hours : opening_hours
+    var photos : [photos]?
+    var price_level: Int
+    var rating: Float
+    var user_ratings_total : Int
+    var reviews : [reviews]?
+}
 
 struct Response: Decodable{
     
-    var result: result
+    var result: Payload
 }
 
-struct result: Decodable {
+struct Restaurant: Decodable , Identifiable{
+    var id : UUID
     var name: String
     var formatted_address: String
     var formatted_phone_number: String
