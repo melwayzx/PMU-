@@ -9,85 +9,61 @@ import SwiftUI
 
 struct RestaurantItem: View {
     
-//    let item : Restaurants
-    @State var res : result?
-    let place_id : String
     let singleWidth:CGFloat = UIScreen.main.bounds.width
+    var item : Restaurant
     
     var body: some View {
         HStack{
-//            Image("item.image").resizable()
-//                .frame(width: 136,height: 150)
+            Image("item.image").resizable()
+                .frame(width: 136,height: 150)
             
-            HStack(alignment: .firstTextBaseline){
-                VStack(alignment: .leading){
-                    Text(res?.name ?? "").fontWeight(.semibold).font(.custom("Sukhumvit Set", size: 14)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25)).multilineTextAlignment(.leading).lineLimit(2).frame(width: 165,alignment: .leading)
-                     
-                    HStack{
-                        Image(systemName: "star.fill").foregroundColor(.yellow)
-
-                        Text(String(format: "%.1f" ,res?.rating ?? 0)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
-
-                        Text("\(res?.user_ratings_total ?? 0) รีวิว").foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1))
-
-                    }.font(.custom("Sukhumvit Set", size: 12))
-
-                    HStack{
-                        Image(systemName: "clock")
-
-                        Text("\(res?.opening_hours.open_now == true ? "เปิดอยู่" : "ปิด")").foregroundColor(res?.opening_hours.open_now == true ? Color(red: 0.421, green: 0.754, blue: 0.514) : Color(.red)).bold()
-
-                        Text(" \(res?.opening_hours.periods[0].close.time ?? "") - \(res?.opening_hours.periods[0].open.time ?? "")")
-
-                    }.font(.custom("Sukhumvit Set", size: 12)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
-
-                    HStack{
-                        Image(systemName: "phone.fill")
-
-                        Text(res?.formatted_phone_number ?? "")
-
-                    }.font(.custom("Sukhumvit Set", size: 12)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
-
+            //            HStack(alignment: .firstTextBaseline){
+            VStack(alignment: .leading){
+                Text(item.name).fontWeight(.semibold).font(.custom("Sukhumvit Set", size: 14)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25)).multilineTextAlignment(.leading).lineLimit(2).frame(width: 165,alignment: .leading)
+                //
+                HStack{
+                    Image(systemName: "star.fill").foregroundColor(.yellow)
                     
-                }
-             
-//                FavouriteButton(isSet: item.isFavourite)
+                    Text(String(format: "%.1f" ,item.rating)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
+                    
+                    Text("\(item.user_ratings_total) รีวิว").foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1))
+                    
+                }.font(.custom("Sukhumvit Set", size: 12))
                 
+                HStack{
+                    Image(systemName: "clock")
+                    
+                    Text("\(item.open_now == true ? "เปิดอยู่" : "ปิด")").foregroundColor(item.open_now == true ? Color(red: 0.421, green: 0.754, blue: 0.514) : Color(.red)).bold()
+                    
+                    Text(" \(item.opening_time)")
+                    
+                }.font(.custom("Sukhumvit Set", size: 12)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
+                
+                HStack{
+                    Image(systemName: "phone.fill")
+                    
+                    Text(item.formatted_phone_number)
+                    
+                }.font(.custom("Sukhumvit Set", size: 12)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
+                //
+                //
+                
+                
+                //                FavouriteButton(isSet: item.isFavourite)
             }
-            
-        }
-        .frame(width: singleWidth-40, height: 136, alignment: .leading) .cornerRadius(10)
+        } .frame(width: singleWidth-40, height: 136, alignment: .leading) .cornerRadius(10)
         .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke(Color(red: 0.855, green: 0.855, blue: 0.855, opacity: 0.5), lineWidth: 0.5))
-        .onAppear(perform:loadData)
+        
     }
-
     
-    private func loadData() {
-        guard let url = URL(string: "https://maps.googleapis.com/maps/api/place/details/json?place_id=\(place_id)&fields=name,rating,review,user_ratings_total,price_level,formatted_phone_number,formatted_address,geometry,opening_hours,photo&language=th&key=AIzaSyB2zZ0AQ4y2zLNXljvnhOA1qLku4HPAfb8")
-        else {
-            return
-        }
-                URLSession.shared.dataTask(with: url) { (data, response, error) in
-                    guard let data = data
-                    else {
-                        return
-                    }
-                    if let decodedData = try? JSONDecoder().decode(Response.self, from: data){
-//                        print(decodedData)
-                        DispatchQueue.main.async {
-                            self.res = decodedData.result
-//                            print(res!)
-                                            }
-                    }
-
-                }.resume()
-
-    }
+    
 }
 
-struct RestaurantItem_Previews: PreviewProvider {
-    static var previews: some View {
-        RestaurantItem(place_id: PlaceID.getPlaceID()[0].place_id)
-    }
-}
+
+
+//struct RestaurantItem_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RestaurantItem(item: <#T##Restaurant#>)
+//    }
+//}

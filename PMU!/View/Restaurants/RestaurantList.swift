@@ -9,31 +9,19 @@ import SwiftUI
 
 struct RestaurantList: View {
     
-    //    init() {
-    //        self.responseVM = APIView()
-    //    }
+    
     var place_id = PlaceID.getPlaceID()
-    @State var res : Restaurant?
-    @State var myArray : [Restaurant] = []
-    //    let place_id : String
+    @State var response : Restaurant?
+    @State var restaurantList : [Restaurant] = []
+    
     
     var body: some View {
         VStack(spacing: 10){
             
-            ForEach(myArray){item in
+            ForEach(restaurantList){item in
                 RestaurantItem(item : item)
             }
             
-            Button(action:{
-                print(myArray)
-            } , label: {
-                HStack{
-                    Image(systemName: "phone.fill")
-                    Text("ติดต่อร้าน").bold()
-                }.padding(8).foregroundColor(.white)
-                .background(Color(red: 0, green: 0.133, blue: 0.251))
-                .cornerRadius(40).frame(width: 150, height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            })
             Spacer()
                 .frame(height: 20)
                 .onAppear(perform:loadItems)
@@ -57,23 +45,18 @@ struct RestaurantList: View {
             
             if let decodedData = try? JSONDecoder().decode(Response.self, from: data){
                 DispatchQueue.main.async {
-                    let res = decodedData.result
-//                    myArray.append(Restaurant(id: UUID() , name: res.name , formatted_address: res.formatted_phone_number, formatted_phone_number: res.formatted_phone_number ,opening_hours : opening_hours(open_now: res.opening_hours.open_now , period : period(close: res.opening_hours.periods.cl, open: <#T##open#>)) ))
-                    let opening_hours = res.opening_hours
-                    Restaurant(id: <#T##UUID#>,
-                               name: <#T##String#>,
-                               formatted_address: <#T##String#>,
-                               formatted_phone_number: <#T##String#>,
-                               opening_hours: opening_hours,
-                               photos: <#T##[photos]?#>,
-                               price_level: <#T##Int#>,
-                               rating: <#T##Float#>,
-                               user_ratings_total: <#T##Int#>,
-                               reviews: <#T##[reviews]?#>)
+                    let response = decodedData.result
+                    let name = response.name
+                    let formatted_address = response.formatted_address
+                    let formatted_phone_number = response.formatted_phone_number
+                    let opening_time = opentimeOfDay(weekday: response.opening_hours.weekday_text)
+                    let open_now = response.opening_hours.open_now
+                    let price_level = response.price_level
+                    let rating = response.rating
+                    let user_rating_total = response.user_ratings_total
                     
+                    restaurantList.append(Restaurant(id: UUID(), name: name, formatted_address: formatted_address, formatted_phone_number: formatted_phone_number, opening_time: opening_time, open_now:open_now, price_level: price_level, rating: rating, user_ratings_total: user_rating_total ))
                     
-                    
-                    //                    print(decodedData.result)
                     
                 }
             }
@@ -85,6 +68,14 @@ struct RestaurantList: View {
         for placeID in place_id{
             fetchData(placeID: placeID.place_id)
         }
+    }
+    
+    func opentimeOfDay(weekday : [String]) -> String{
+        let date = Date()
+        let calendar = Calendar.current
+        let opening_time = weekday[calendar.component(.day, from: date)-1].split(separator: " ")
+        return (String(opening_time[1]))
+        
     }
     
 }
