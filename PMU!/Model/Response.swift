@@ -9,10 +9,10 @@ import Foundation
 
 struct Payload : Decodable{
     var name: String
-    var formatted_address: String?
+    var formatted_address: String
     var formatted_phone_number: String
     var opening_hours : opening_hours
-    var photos : [photos]?
+    var photos : [photos]
     var price_level: Int
     var rating: Float
     var user_ratings_total : Int
@@ -29,12 +29,13 @@ struct Restaurant: Decodable , Identifiable{
     var name: String
     var formatted_address: String
     var formatted_phone_number: String
-    var opening_hours : opening_hours
-    var photos : [photos]?
+    var opening_time : String
+    var open_now : Bool
+//    var photos : [photos]?
     var price_level: Int
     var rating: Float
     var user_ratings_total : Int
-    var reviews : [reviews]?
+//    var reviews : [reviews]?
 
 }
 
@@ -42,6 +43,7 @@ struct opening_hours : Decodable{
     var open_now : Bool
     var periods : [period]
     var weekday_text : [String]
+    
 }
 
 struct period : Decodable{
