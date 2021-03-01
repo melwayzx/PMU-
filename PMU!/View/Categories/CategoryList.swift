@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct CategoryList: View {
-    let type = Types.all()
+    let type = Categories.all()
     let layout = Array(repeating: GridItem(.adaptive(minimum:60)), count: 4)
+    var restaurantList: [Restaurant]
     
     var body: some View {
         
@@ -21,7 +22,7 @@ struct CategoryList: View {
             
             LazyVGrid(columns: layout, spacing: 10){
                 ForEach(self.type, id: \.name){item in
-                    NavigationLink(destination: CategoryView(type_name: item)){
+                    NavigationLink(destination: CategoryView(restaurantList: restaurantList, category: item)){
                         CategoryItem(item : item)
                     }
                 }
@@ -30,9 +31,9 @@ struct CategoryList: View {
     }
 }
 
-struct CategoryList_Previews: PreviewProvider {
-    static var previews: some View {
-        CategoryList()
-    }
-}
+//struct CategoryList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CategoryList()
+//    }
+//}
 

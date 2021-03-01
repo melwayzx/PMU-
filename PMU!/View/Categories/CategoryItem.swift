@@ -10,7 +10,7 @@ import SwiftUI
 struct CategoryItem: View {
     
     
-    var item : Types
+    var item : Categories
     
     var body: some View {
         VStack(alignment: .center)
@@ -28,6 +28,6 @@ struct CategoryItem: View {
 
 struct CategoryItem_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryItem(item : Types.all()[0])
+        CategoryItem(item : Categories.all()[0])
     }
 }
