@@ -17,6 +17,7 @@ struct Payload : Decodable{
     var rating: Float
     var user_ratings_total : Int
     var reviews : [reviews]?
+    var geometry : geometry
 }
 
 struct Response: Decodable{
@@ -36,6 +37,10 @@ struct Restaurant: Decodable , Identifiable{
     var rating: Float
     var user_ratings_total : Int
 //    var reviews : [reviews]?
+    var lat : Double
+    var lng : Double
+    var distance : Double
+    var category : [Int]
 
 }
 
@@ -77,4 +82,13 @@ struct reviews : Decodable{
     var relative_time_description : String
     var text : String
     var time : Int
+}
+
+struct geometry : Decodable{
+    var location : location
+}
+
+struct location : Decodable {
+    var lat : Double
+    var lng : Double
 }
