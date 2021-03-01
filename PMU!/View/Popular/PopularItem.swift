@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PopularItem: View {
 
-    var item : Restaurants
+    var item : Restaurant
     let singleWidth:CGFloat = UIScreen.main.bounds.width
     
     var body: some View {
@@ -23,14 +23,14 @@ struct PopularItem: View {
             
             Text(item.name).fontWeight(.semibold).font(.custom("Sukhumvit Set", size: 14, relativeTo: .footnote)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25))
                 
-                Text(item.address).fontWeight(.regular).font(.custom("Sukhumvit Set", size: 12 , relativeTo: .caption)).foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1)) .lineLimit(1)
+            Text(item.formatted_address).fontWeight(.regular).font(.custom("Sukhumvit Set", size: 12 , relativeTo: .caption)).foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1)) .lineLimit(1)
                 
             HStack{
                     Image(systemName: "star.fill").foregroundColor(.yellow).font(.system(size: 12, weight: .regular))
                     
-                Text(String(format: "%.1f" ,item.star_score)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
+                Text(String(format: "%.1f" ,item.rating)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
                     
-                Text("\(item.review_score) รีวิว").foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1))
+                Text("\(item.user_ratings_total) รีวิว").foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1))
                     
             }.font(.custom("Sukhumvit Set", size: 12 , relativeTo: .caption))
                 
@@ -38,8 +38,8 @@ struct PopularItem: View {
     }
 }
 
-struct PopularItem_Previews: PreviewProvider {
-    static var previews: some View {
-        PopularItem(item: Restaurants.all()[0])
-    }
-}
+//struct PopularItem_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PopularItem()
+//    }
+//}
