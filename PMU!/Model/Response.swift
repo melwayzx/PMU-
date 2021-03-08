@@ -9,14 +9,14 @@ import Foundation
 
 struct Payload : Decodable{
     var name: String
-    var formatted_address: String
-    var formatted_phone_number: String
+    var formatted_address: String?
+    var formatted_phone_number: String?
     var opening_hours : opening_hours
-    var photos : [photos]
-    var price_level: Int
-    var rating: Float
-    var user_ratings_total : Int
-    var reviews : [reviews]?
+//    var photos : [photos]?
+    var price_level: Int?
+    var rating: Float?
+    var user_ratings_total : Int?
+//    var reviews : [reviews]?
     var geometry : geometry
 }
 
@@ -33,7 +33,7 @@ struct Restaurant: Decodable , Identifiable{
     var opening_time : String
     var open_now : Bool
 //    var photos : [photos]?
-    var price_level: Int
+    var price_level: String
     var rating: Float
     var user_ratings_total : Int
 //    var reviews : [reviews]?
@@ -41,13 +41,15 @@ struct Restaurant: Decodable , Identifiable{
     var lng : Double
     var distance : Double
     var category : [Int]
+    var category_text : [String]
+    var place_id : String
 
 }
 
 struct opening_hours : Decodable{
     var open_now : Bool
-    var periods : [period]
-    var weekday_text : [String]
+    var periods : [period]?
+    var weekday_text : [String]?
     
 }
 
