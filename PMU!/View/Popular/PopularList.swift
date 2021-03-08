@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct PopularList: View {
-//    let restaurant = Restaurants.all()
+    //    let restaurant = Restaurants.all()
     
     var listSorted :[Restaurant]
     
     
     init(restaurantList : [Restaurant]) {
         self.listSorted = restaurantList.sorted {
-            $0.rating > $1.rating
+            $0.user_ratings_total > $1.user_ratings_total
         }
+        
     }
-
+    
     var body: some View {
         
         VStack(alignment: .leading)  {
@@ -27,13 +28,25 @@ struct PopularList: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 5) {
                     ForEach(listSorted){item in
-                        PopularItem(item : item)
+                        NavigationLink(
+                            destination: RestaurantDetail(restaurant: item)
+                        ){
+                            PopularItem(item : item)
+                            
+                        }
                     }
+                    
+                    
                 }
+                
             }
+            
+            
         }
+        
     }
 }
+
 
 
 //struct PopularList_Previews: PreviewProvider {
