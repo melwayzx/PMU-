@@ -35,7 +35,7 @@ struct RestaurantItem: View {
                     
                     Text("\(item.open_now == true ? "เปิดอยู่" : "ปิด")").foregroundColor(item.open_now == true ? Color(red: 0.421, green: 0.754, blue: 0.514) : Color(.red)).bold()
                     
-                    Text(" \(item.opening_time)")
+                    Text(" เปิดเวลา \(item.opening_time)")
                     
                 }.font(.custom("Sukhumvit Set", size: 12)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
                 
