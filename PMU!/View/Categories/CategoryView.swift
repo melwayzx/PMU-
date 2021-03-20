@@ -12,11 +12,16 @@ struct CategoryView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @GestureState private var dragOffset = CGSize.zero
     let singleWidth:CGFloat = UIScreen.main.bounds.width
+//    var restaurantList: [Restaurant]
+//
+    var category : Categories
+    var resultList : [Restaurant]
     
-    
-    var type_name : Types
-    let count = Types.all().count
-    
+    init(restaurantList: [Restaurant] , category : Categories) {
+        self.resultList = restaurantList.filter{ (restaurant) -> Bool in return restaurant.category.contains(category.id) }
+        
+        self.category = category
+    }
     
     
     var body: some View {
@@ -27,16 +32,16 @@ struct CategoryView: View {
                
                     
                     ZStack{
-                        Image(type_name.image).resizable()
+                        Image(category.image).resizable()
                             .aspectRatio(contentMode: .fill)
                             .edgesIgnoringSafeArea(.top)
                         Rectangle().fill(Color(red: 0, green: 0, blue: 0, opacity: 0.60))
-                        Text(type_name.name).font(.custom("Sukhumvit Set", size: 36 )).bold().foregroundColor(.white)
+                        Text(category.name).font(.custom("Sukhumvit Set", size: 36 )).bold().foregroundColor(.white)
                     } .frame(width: singleWidth, height: 213)
                     .clipped()
                 VStack(alignment:.leading){
-                    Text("พบผลลัพธ์ \(count) รายการ").bold()
-                    RestaurantList()
+                    Text("พบผลลัพธ์ \(resultList.count) รายการ").bold()
+                    RestaurantList(restaurantList: resultList)
                 }
                         
                         
@@ -58,8 +63,8 @@ struct CategoryView: View {
     }
 }
 
-struct CategoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        CategoryView(type_name: Types.all()[0])
-    }
-}
+//struct CategoryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CategoryView(type_name: Categories.all()[0])
+//    }
+//}
