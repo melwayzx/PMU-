@@ -1,0 +1,66 @@
+//
+//  SearchView.swift
+//  PMU!
+//
+//  Created by Melwayz's  on 1/3/21.
+//
+
+import SwiftUI
+
+struct Filter : Identifiable {
+    let id : Int
+    let title : String
+}
+
+struct SearchView: View {
+    
+    @Environment(\.presentationMode) var presentationMode
+    @State var searchInput: String = ""
+    @State var didSelectCategory : [Int] = []
+    @State  var didSelectPrice : Int = 5
+    var restaurantList : [Restaurant]
+    let screenWidth = UIScreen.main.bounds.width
+    
+    
+    var body: some View {
+        VStack{
+            
+            HStack{
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }){
+                    Image(systemName: "chevron.left").foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25)).font(.body)
+                }
+                TextField("      โปรดกรอกชื่อร้านอาหาร ...", text: $searchInput)
+                    
+                    .frame(width : 300 , height: 40)
+                    .background(Color(red: 0.898, green: 0.898, blue: 0.898, opacity: 0.22) )
+                    .cornerRadius(40)
+                    .foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 40)
+                            .stroke(Color(red: 0.898, green: 0.898, blue: 0.898, opacity: 0.22), lineWidth: 2  )
+                    )
+                
+                NavigationLink(
+                    destination: FilterView(didSelectCategory : $didSelectCategory , didSelectPrice : $didSelectPrice)
+                ){
+                    Image("sliders").frame(width: 50, height: 40) .cornerRadius(40)
+                        .overlay(RoundedRectangle(cornerRadius: 40)
+                                    .stroke(Color(red: 0.898, green: 0.898, blue: 0.898, opacity: 0.22), lineWidth: 2))
+                }
+            }.padding(.leading,20)
+            .padding(.trailing,20)
+            .padding(.top, 20)
+            
+            ScrollView{
+                SearchResult(restaurantList: restaurantList , selectedCategory : $didSelectCategory)
+            }
+            
+        }.font(.custom("Sukhumvit Set", size: 14))
+        .navigationBarHidden(true)
+        
+    }
+}
+
+
