@@ -9,10 +9,13 @@ import SwiftUI
 
 struct SearchResult: View {
     
-    @State var listSorted :[Restaurant] = []
+    @Binding var listSorted : [Restaurant]
     var restaurantList : [Restaurant]
     @Binding var selectedCategory : [Int]
+    @Binding var selectedPrice : String
+    @Binding var selectDistance : Double
     @State var didSelectSort : Int  = 0
+    
     let filterAll : [Filter] = [Filter(id : 0 , title : "ระยะทางใกล้ฉันที่สุด"),Filter(id : 1 , title : "ราคาต่ำสุด"),Filter(id : 2 , title : "ราคาสูงสุด"),Filter(id : 3 , title : "คะแนนรีวิว"), ]
     
     var body: some View {
@@ -26,7 +29,7 @@ struct SearchResult: View {
                             
                             Button(action: {
                                 self.didSelectSort = item.id
-//                                print(didSelectSort)
+                                //                                print(didSelectSort)
                             }){
                                 Text(item.title)
                                     .frame(height: 30)
@@ -92,16 +95,41 @@ struct SearchResult: View {
     }
     
     func filterResult(){
+        
+        if(!selectedCategory.isEmpty){
             self.listSorted = restaurantList.filter { (restaurant) -> Bool in
                 if (restaurant.category.count > 2 ){
                     return  selectedCategory.contains(restaurant.category[0]) || selectedCategory.contains(restaurant.category[1])
                 }
                 return selectedCategory.contains(restaurant.category[0])
             }
+        }
+        
+        if(selectedPrice != ""){
+            if(listSorted.isEmpty){
+                self.listSorted = restaurantList.filter{ restaurant -> Bool in
+                    return selectedPrice == restaurant.price_level || "ไม่ระบุราคา" == restaurant.price_level
+                }
+            }
+            self.listSorted = listSorted.filter{ restaurant -> Bool in
+                return selectedPrice == restaurant.price_level || "ไม่ระบุราคา" == restaurant.price_level
+            }
+        }
+        
+        if(selectDistance != 0){
+            if(listSorted.isEmpty){
+                self.listSorted = restaurantList.filter{ restaurant -> Bool in
+                    return selectDistance >= restaurant.distance
+                }
+            }
+            self.listSorted = listSorted.filter{restaurant -> Bool in
+                return selectDistance >= restaurant.distance
+            }
+        }
         
         self.listSorted = listSorted.sorted {
             $0.distance < $1.distance
         }
     }
 }
-    
+

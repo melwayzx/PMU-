@@ -18,11 +18,14 @@ struct FilterView : View {
     
     @State var priceValue: Double = 0
     @Binding var didSelectCategory : [Int]
-    @Binding  var didSelectPrice : Int
+    @Binding var didSelectPrice : String
+    @Binding var didSelectDistance : Double
+    @Binding var clickedSearch : Bool
     var categories = Categories.all()
     let layout = Array(repeating: GridItem(.adaptive(minimum:160)), count: 2)
     let layout2 = Array(repeating: GridItem(.adaptive(minimum:60)), count: 5)
     @Environment(\.presentationMode) var presentationMode
+    let screenWidth = UIScreen.main.bounds.width
     
     
     let priceChoices : [PriceChoices] = [PriceChoices(id: 0, title: "฿", subtitle : "< 100" ),PriceChoices(id: 1, title: "฿฿", subtitle : "101-250"),PriceChoices(id: 2, title: "฿฿฿", subtitle : "251-500"),PriceChoices(id: 3, title: "฿฿฿฿", subtitle : "501-1000"),PriceChoices(id: 4, title: "฿฿฿฿฿", subtitle : " > 1,000"),]
@@ -43,10 +46,12 @@ struct FilterView : View {
                 Spacer()
                 Button(action:{
                     self.didSelectCategory.removeAll()
+                    self.didSelectPrice = ""
+                    self.didSelectDistance = 0
                 }){
                     Text("รีเซ็ท").fontWeight(.semibold).padding(.trailing,20)
                 }
-               
+                
                 
             }.font(.custom("Sukhumvit Set", size: 18)).foregroundColor(Color(red: 0, green: 0.133, blue: 0.251))
             .frame(height: 40)
@@ -84,7 +89,7 @@ struct FilterView : View {
                             ForEach(self.priceChoices, id: \.title){item in
                                 
                                 Button(action: {
-                                    self.didSelectPrice = item.id
+                                    self.didSelectPrice = item.title
                                 }){
                                     SelectPrice(item: item , didSelect : didSelectPrice)
                                     
@@ -96,6 +101,18 @@ struct FilterView : View {
                         
                         Text("ระยะทาง").font(.custom("Sukhumvit Set", size: 16)).fontWeight(.semibold).foregroundColor(Color(red: 0, green: 0.133, blue: 0.251))
                         
+                        VStack(){
+                            if(didSelectDistance > 0){
+                                HStack{
+                                    Text( "ระยะทางไม่เกิน ").foregroundColor(Color.gray)
+                                    Text(didSelectDistance < 1000 ? "\(String(format: "%.0f", didSelectDistance))  เมตร " :  "\(String(format: "%.0f", didSelectDistance/1000))  กิโลเมตร" ).foregroundColor(Color(red: 0, green: 0.133, blue: 0.251)).fontWeight(.semibold)
+                                }.font(.custom("Sukhumvit Set", size: 16))
+                            }
+                            
+                            Slider(value: $didSelectDistance , in : 0...5000 , step : 50)
+                        }.frame(width: screenWidth - 40, alignment: .center)
+                        
+                        
                         Text("ตัวกรองเพิ่มเติม").font(.custom("Sukhumvit Set", size: 16)).fontWeight(.semibold).foregroundColor(Color(red: 0, green: 0.133, blue: 0.251))
                         
                     }.padding()
@@ -106,6 +123,7 @@ struct FilterView : View {
                     HStack(alignment: .center){
                         Button(action: {
                             self.presentationMode.wrappedValue.dismiss()
+                            self.clickedSearch = true
                         }){
                             Text("ค้นหา")
                                 .fontWeight(.bold)
@@ -123,8 +141,6 @@ struct FilterView : View {
                     }
                 }
             }.background(Color(red: 0.98, green: 0.98, blue: 0.98).edgesIgnoringSafeArea(.bottom))
-            //        .navigationBarTitle("การค้นหาขั้นสูง", displayMode: .inline)
         }
     }
-    //        .navigationBarBackButtonHidden(true)
 }
