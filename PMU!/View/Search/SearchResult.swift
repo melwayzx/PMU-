@@ -49,7 +49,7 @@ struct SearchResult: View {
                     }
                     
                 }
-            }.padding(.leading,20).padding(.top,10)
+            }.padding(.leading).padding(.top)
             
             
             if(listSorted.count != 0){

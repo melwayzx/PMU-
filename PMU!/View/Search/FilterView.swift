@@ -15,8 +15,6 @@ struct PriceChoices : Identifiable {
 
 struct FilterView : View {
     
-    
-    @State var priceValue: Double = 0
     @Binding var didSelectCategory : [Int]
     @Binding var didSelectPrice : String
     @Binding var didSelectDistance : Double
@@ -29,16 +27,22 @@ struct FilterView : View {
     
     
     let priceChoices : [PriceChoices] = [PriceChoices(id: 0, title: "฿", subtitle : "< 100" ),PriceChoices(id: 1, title: "฿฿", subtitle : "101-250"),PriceChoices(id: 2, title: "฿฿฿", subtitle : "251-500"),PriceChoices(id: 3, title: "฿฿฿฿", subtitle : "501-1000"),PriceChoices(id: 4, title: "฿฿฿฿฿", subtitle : " > 1,000"),]
-    
-    
+   
+
     var body: some View {
         VStack{
             
             HStack{
                 Button(action:{
                     self.presentationMode.wrappedValue.dismiss()
+                    if(!clickedSearch){
+                        self.didSelectCategory.removeAll()
+                        self.didSelectPrice = ""
+                        self.didSelectDistance = 0
+                    }
                 }){
                     Text("กลับ").fontWeight(.semibold).padding(.leading,20)
+                    
                 }
                 
                 Spacer()
@@ -138,7 +142,7 @@ struct FilterView : View {
                                         .stroke(Color(red: 0.00, green: 0.13, blue: 0.25), lineWidth: 1  )
                                 )
                         }
-                    }
+                    }.padding()
                 }
             }.background(Color(red: 0.98, green: 0.98, blue: 0.98).edgesIgnoringSafeArea(.bottom))
         }

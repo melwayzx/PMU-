@@ -34,11 +34,11 @@ struct SearchView: View {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }){
-                        Image(systemName: "chevron.left").foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25)).font(.body)
+                        Image(systemName: "chevron.left").foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25)).font(.body).padding(.trailing)
                     }
                     TextField("      โปรดกรอกชื่อร้านอาหาร ...", text: $searchInput)
                         
-                        .frame(width : 300 , height: 40)
+                        .frame(width : screenWidth * 2 / 3 , height: 40)
                         .background(Color(red: 0.898, green: 0.898, blue: 0.898, opacity: 0.22) )
                         .cornerRadius(40)
                         .foregroundColor(searchInput == "" ? Color(red: 0.682, green: 0.702, blue: 0.745) : Color(red: 0.00, green: 0.13, blue: 0.25))
@@ -56,13 +56,13 @@ struct SearchView: View {
                     NavigationLink(
                         destination: FilterView(didSelectCategory : $didSelectCategory , didSelectPrice : $didSelectPrice , didSelectDistance : $didSelectDistance , clickedSearch : $clickedSearch)
                     ){
-                        Image("sliders").frame(width: 50, height: 40) .cornerRadius(40)
-                            .overlay(RoundedRectangle(cornerRadius: 40)
+                        Image("sliders").frame(width: screenWidth / 10 , height: screenWidth / 10) .cornerRadius(screenWidth / 20)
+                            .overlay(RoundedRectangle(cornerRadius: screenWidth / 20)
                                         .stroke(Color(red: 0.898, green: 0.898, blue: 0.898, opacity: 0.22), lineWidth: 2))
                     }
-                }.padding(.leading,20)
-                .padding(.trailing,20)
-                .padding(.top, 20)
+                }.padding(.leading)
+                .padding(.trailing)
+                .padding(.top)
                 
             }
             
@@ -74,7 +74,8 @@ struct SearchView: View {
             }
             
             
-        }.font(.custom("Sukhumvit Set", size: 14))
+        }
+        .font(.custom("Sukhumvit Set", size: 14))
         .navigationBarHidden(true)
         .onChange(of: searchInput, perform: { value in
             self.listSorted =  restaurantList.filter({ value == "" ? false : $0.name.contains(value) })
