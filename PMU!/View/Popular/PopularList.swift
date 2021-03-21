@@ -27,16 +27,19 @@ struct PopularList: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 5) {
-                    ForEach(listSorted){item in
-                        NavigationLink(
-                            destination: RestaurantDetail(restaurant: item)
-                        ){
-                            PopularItem(item : item)
-                            
+                    ForEach(listSorted.indices , id: \.self){item in
+                        if( item < 10){
+                            NavigationLink(
+                                destination: RestaurantDetail(restaurant: listSorted[item])
+                            ){
+                                
+                                
+                                PopularItem(item : listSorted[item])
+                                
+                            }
                         }
+                        
                     }
-                    
-                    
                 }
                 
             }
