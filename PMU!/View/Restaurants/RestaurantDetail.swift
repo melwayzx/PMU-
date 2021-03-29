@@ -46,7 +46,10 @@ struct RoundedCorners: View {
 }
 
 
-
+import Foundation
+import CoreLocation
+import MapKit
+import UIKit
 
 struct RestaurantDetail: View {
     
@@ -55,13 +58,14 @@ struct RestaurantDetail: View {
     let screenHeight = UIScreen.main.bounds.height
     let screenWidth = UIScreen.main.bounds.width
     
+    
     var body: some View {
         VStack{
             ScrollView{
                 VStack{
                     ZStack(alignment : .topLeading ){
-
-                        Image("item.image").resizable().scaledToFill().frame(height: 300)
+                        
+                        Image("item.image").resizable().scaledToFill().frame(width : screenWidth ,height: screenHeight / 3)
                         HStack{
                             Button(action: {
                                 self.presentationMode.wrappedValue.dismiss()
@@ -72,118 +76,22 @@ struct RestaurantDetail: View {
                                 }
                             }
                             Spacer()
-                           
-                        }.padding()
+                            
+                        }.padding().padding(.top,40)
                     }
                     ZStack(alignment: .topLeading ){
                         RoundedCorners(color: .white, tl: 18, tr: 18, bl: 0, br: 0)
-                        VStack(alignment: .leading){
-                            HStack(alignment: .firstTextBaseline){
-                                Text(restaurant.name) .font(.custom("Sukhumvit Set", size: 24 )).bold().foregroundColor(Color(red: 0, green: 0.133, blue: 0.251))
-                                    .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
-                                //                                    .frame(width: 240, alignment: .leading)
-                                
-                                Spacer()
-                                Image(systemName: "heart.fill").foregroundColor(.red).font(.title)
-                                //                        FavouriteButton(isSet: restaurant.isFavourite )
-                                //                        if  restaurant.isFavourite {
-                                //                            Image(systemName: "heart.fill").foregroundColor(.red).font(.title)
-                                //                        }else{
-                                //                            Image(systemName: "heart").foregroundColor(.red).font(.title)
-                                //                        }
-                                
-                                //                        Toggle(isSet: )
-                            }
-                            
-                            
-                            HStack{
-                                ForEach(restaurant.category_text , id: \.self){category in
-                                    Text(category)
-                                        .font(.custom("Sukhumvit Set", size: 14))
-                                        .fontWeight(.semibold)
-                                        .frame(height: 30)
-                                        .padding(.leading,10)
-                                        .padding(.trailing,10)
-                                        .foregroundColor(Color(red: 0.451, green: 0.451, blue: 0.451, opacity : 0.69))
-                                        .background(Color.white)
-                                        .overlay(RoundedRectangle(cornerRadius: 40)
-                                                    .stroke(Color(red: 0.451, green: 0.451, blue: 0.451, opacity : 0.69)))
-                                }
-                            }
-                            
-                            HStack(spacing: 1){
-                                ForEach(0..<Int(restaurant.rating)){ item in
-                                    Image(systemName: "star.fill").foregroundColor(.yellow)
-                                }
-                                ForEach(0..<5-Int(restaurant.rating)){ item in
-                                    Image(systemName: "star.fill")
-                                }
-                                
-                                Text(String(format: "%.1f" ,restaurant.rating))
-                                
-                                Text("( \(restaurant.user_ratings_total) รีวิว )")
-                                
-                            }.font(.custom("Sukhumvit Set", size: 14)).foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1))
-                            
-                            
-                            Text("ราคา \(restaurant.price_level)").font(.custom("Sukhumvit Set", size: 14 )).foregroundColor(Color(red: 0.451, green: 0.451, blue: 0.451, opacity : 0.69))
-                            
-                            //
-                            
-                            Text("ที่อยู่ร้านอาหาร").foregroundColor(Color(red: 0, green: 0.133, blue: 0.251)).bold()
-                            Text(restaurant.formatted_address).foregroundColor(Color(red: 0.412, green: 0.431, blue: 0.451)).lineLimit(3).frame(width: 240, alignment: .leading)
-                            //
-                            Text("เวลาเปิด").foregroundColor(Color(red: 0, green: 0.133, blue: 0.251)).bold()
-                            HStack{
-                                Text("\(restaurant.open_now == true ? "เปิดอยู่" : "ปิด")").foregroundColor(restaurant.open_now == true ? Color(red: 0.421, green: 0.754, blue: 0.514) : Color(.red)).bold()
-                                
-                                Text(restaurant.opening_time).foregroundColor(Color(red: 0.412, green: 0.431, blue: 0.451))
-                            }
-                            HStack{
-                                VStack(alignment: .leading){
-                                    Text("เบอร์โทรศัพท์").foregroundColor(Color(red: 0, green: 0.133, blue: 0.251)).bold()
-                                    Text(restaurant.formatted_phone_number).foregroundColor(Color(red: 0.412, green: 0.431, blue: 0.451))
-                                }
-                                Spacer()
-                                
-                                Button(action:{
-                                    let dash = CharacterSet(charactersIn: "-")
-                                    
-                                    let cleanString =
-                                        restaurant.formatted_phone_number.trimmingCharacters(in: dash)
-                                    
-                                    let tel = "tel://"
-                                    let formattedString = tel + cleanString
-                                    let url: NSURL = URL(string: formattedString)! as NSURL
-                                    
-                                    UIApplication.shared.open(url as URL)
-                                } , label: {
-                                    HStack{
-                                        Image(systemName: "phone.fill")
-                                        Text("ติดต่อร้าน").bold()
-                                    }.padding(8).foregroundColor(.white)
-                                    .background(Color(red: 0, green: 0.133, blue: 0.251))
-                                    .cornerRadius(40).frame(width: 150, height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                })
-                            }
-                            
-                            //// map
-                            
-                            
-                        }.padding().font(.custom("Sukhumvit Set", size: 16))
+                        VStack{
+                            DetailComponent(restaurant: restaurant)
+                            RestaurantMapView(restaurant : restaurant).frame(height : 150)
+                            ContactComponent(restaurant: restaurant).frame(height : 90)
+                        }
                         
-                        
-                    }
+                    }.padding().font(.custom("Sukhumvit Set", size: 16))
                 }
             }
         }
-        //        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         .navigationBarHidden(true)
     }
 }
-
-//struct RestaurantDetail_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RestaurantDetail(restaurant: Restaurants.all()[0])
-//    }
-//}

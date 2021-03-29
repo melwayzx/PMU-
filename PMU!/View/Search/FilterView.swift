@@ -13,11 +13,19 @@ struct PriceChoices : Identifiable {
     let subtitle : String
 }
 
+struct OptionChoice : Identifiable{
+    let id : Int
+    let title : String
+    let logo : String
+}
+
 struct FilterView : View {
     
+    var cardTitle : String
     @Binding var didSelectCategory : [Int]
     @Binding var didSelectPrice : String
     @Binding var didSelectDistance : Double
+    @Binding var didSelectOption : [String]
     @Binding var clickedSearch : Bool
     var categories = Categories.all()
     let layout = Array(repeating: GridItem(.adaptive(minimum:160)), count: 2)
@@ -27,31 +35,34 @@ struct FilterView : View {
     
     
     let priceChoices : [PriceChoices] = [PriceChoices(id: 0, title: "฿", subtitle : "< 100" ),PriceChoices(id: 1, title: "฿฿", subtitle : "101-250"),PriceChoices(id: 2, title: "฿฿฿", subtitle : "251-500"),PriceChoices(id: 3, title: "฿฿฿฿", subtitle : "501-1000"),PriceChoices(id: 4, title: "฿฿฿฿฿", subtitle : " > 1,000"),]
-   
-
+    
+    let optionChoice : [OptionChoice] = [OptionChoice(id: 0, title: "ที่จอดรถ", logo :  "p.circle"),OptionChoice(id: 1, title : "บริการจัดส่ง", logo : "logo-lineman"),OptionChoice(id: 2, title: "คนละครึ่ง", logo :"logo-KLK"),OptionChoice(id: 3, title: "เราชนะ", logo: "logo-wewin"),OptionChoice(id: 4, title: "เรารักกัน", logo: "logo-welove")]
+    
+    
     var body: some View {
         VStack{
             
             HStack{
                 Button(action:{
                     self.presentationMode.wrappedValue.dismiss()
-                    if(!clickedSearch){
-                        self.didSelectCategory.removeAll()
-                        self.didSelectPrice = ""
-                        self.didSelectDistance = 0
-                    }
+                    //                    if(!clickedSearch){
+                    //                        self.didSelectCategory.removeAll()
+                    //                        self.didSelectPrice = ""
+                    //                        self.didSelectDistance = 0
+                    //                    }
                 }){
                     Text("กลับ").fontWeight(.semibold).padding(.leading,20)
                     
                 }
                 
                 Spacer()
-                Text("การค้นหาขั้นสูง").bold()
+                Text(cardTitle).bold()
                 Spacer()
                 Button(action:{
                     self.didSelectCategory.removeAll()
                     self.didSelectPrice = ""
                     self.didSelectDistance = 0
+                    self.didSelectOption.removeAll()
                 }){
                     Text("รีเซ็ท").fontWeight(.semibold).padding(.trailing,20)
                 }
@@ -93,7 +104,12 @@ struct FilterView : View {
                             ForEach(self.priceChoices, id: \.title){item in
                                 
                                 Button(action: {
-                                    self.didSelectPrice = item.title
+                                    if(didSelectPrice == item.title){
+                                        self.didSelectPrice = ""
+                                    }else{
+                                        self.didSelectPrice = item.title
+                                    }
+                                    
                                 }){
                                     SelectPrice(item: item , didSelect : didSelectPrice)
                                     
@@ -109,7 +125,7 @@ struct FilterView : View {
                             if(didSelectDistance > 0){
                                 HStack{
                                     Text( "ระยะทางไม่เกิน ").foregroundColor(Color.gray)
-                                    Text(didSelectDistance < 1000 ? "\(String(format: "%.0f", didSelectDistance))  เมตร " :  "\(String(format: "%.0f", didSelectDistance/1000))  กิโลเมตร" ).foregroundColor(Color(red: 0, green: 0.133, blue: 0.251)).fontWeight(.semibold)
+                                    Text(didSelectDistance < 1000 ? "\(String(format: "%.0f", didSelectDistance))  เมตร " :  "\(String(format: "%.1f", didSelectDistance/1000)) กิโลเมตร" ).foregroundColor(Color(red: 0, green: 0.133, blue: 0.251)).fontWeight(.semibold)
                                 }.font(.custom("Sukhumvit Set", size: 16))
                             }
                             
@@ -119,32 +135,50 @@ struct FilterView : View {
                         
                         Text("ตัวกรองเพิ่มเติม").font(.custom("Sukhumvit Set", size: 16)).fontWeight(.semibold).foregroundColor(Color(red: 0, green: 0.133, blue: 0.251))
                         
-                    }.padding()
-                }
-                
-                
-                Group{
-                    HStack(alignment: .center){
-                        Button(action: {
-                            self.presentationMode.wrappedValue.dismiss()
-                            self.clickedSearch = true
-                        }){
-                            Text("ค้นหา")
-                                .fontWeight(.bold)
-                                .font(.custom("Sukhumvit Set", size: 14))
-                                .fontWeight(.semibold)
-                                .frame(width: 180, height: 40, alignment: .center)
-                                .background(Color(red: 0.00, green: 0.13, blue: 0.25))
-                                .cornerRadius(40)
-                                .foregroundColor( Color.white)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 40)
-                                        .stroke(Color(red: 0.00, green: 0.13, blue: 0.25), lineWidth: 1  )
-                                )
+                        ForEach(self.optionChoice, id: \.id){item in
+                            
+                            Button(action: {
+                                
+                                if(didSelectOption.contains(item.title)){
+                                    let index = didSelectOption.firstIndex(of : item.title )
+                                    self.didSelectOption.remove(at:  index ?? 0)
+                                }else{
+                                    self.didSelectOption.append(item.title)
+                                }
+                                
+                            }){
+                                SelectOption(item: item, didSelect: didSelectOption)
+                            }
+                            
                         }
+                        
+                        
+                        
+                        
                     }.padding()
-                }
-            }.background(Color(red: 0.98, green: 0.98, blue: 0.98).edgesIgnoringSafeArea(.bottom))
+                }.background(Color(red: 0.98, green: 0.98, blue: 0.98).edgesIgnoringSafeArea(.bottom))
+                
+            }
+            
+            //            HStack(alignment: .center){
+            Button(action: {
+                self.presentationMode.wrappedValue.dismiss()
+                self.clickedSearch = true
+            }){
+                Text("ค้นหา")
+                    .fontWeight(.bold)
+                    .font(.custom("Sukhumvit Set", size: 14))
+                    .fontWeight(.semibold)
+                    .frame(width: 180, height: 40, alignment: .center)
+                    .background(Color(red: 0.00, green: 0.13, blue: 0.25))
+                    .cornerRadius(40)
+                    .foregroundColor( Color.white)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 40)
+                            .stroke(Color(red: 0.00, green: 0.13, blue: 0.25), lineWidth: 1  )
+                    )
+            }
+            //            }
         }
     }
 }
