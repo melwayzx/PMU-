@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct SelectCategoryButton: View {
+struct SelectCategoryItem: View {
     
     var item : Categories
     let didSelect : [Int]
     var body: some View {
         Text(item.name)
             .fontWeight(.bold)
-            .font(.custom("Sukhumvit Set", size: 14))
+            .font(.callout)
             .fontWeight(.semibold)
             .frame(width: 170, height: 40)
             .background(didSelect.contains(item.id) ? Color(red: 0.00, green: 0.13, blue: 0.25) : Color.white)
