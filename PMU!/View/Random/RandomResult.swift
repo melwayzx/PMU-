@@ -11,6 +11,7 @@ struct RandomResult: View {
     var randomItem : Restaurant
     
     var body: some View {
+
         VStack{
             VStack(alignment: .leading){
                 Image("item.image").resizable()
@@ -27,6 +28,13 @@ struct RandomResult: View {
                             Text(String(format: "%.1f" ,randomItem.rating)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
 
                             Text("\(randomItem.user_ratings_total) รีวิว").foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1))
+                            
+                            Text("·").foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1))
+                            PriceText(price : randomItem.price_level)
+                            Text("·").foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1))
+                            
+                            Text( randomItem.distance < 1000 ?  "\(String(format: "%.0f",randomItem.distance)) ม."  : "\(String(format: "%.1f", randomItem.distance/1000)) กม.")
+                            
 
                         }.font(.custom("Sukhumvit Set", size: 12))
                         HStack{

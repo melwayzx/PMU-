@@ -19,39 +19,41 @@ struct RestaurantItem: View {
             
             //            HStack(alignment: .firstTextBaseline){
             VStack(alignment: .leading){
-                Text(item.name).fontWeight(.semibold).font(.custom("Sukhumvit Set", size: 14)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25)).multilineTextAlignment(.leading).lineLimit(2).frame(width: 165,alignment: .leading)
+                Text(item.name).fontWeight(.semibold).font(.callout).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25)).multilineTextAlignment(.leading).lineLimit(2)
                 //
+                HStack{
+                    CategoryBox(item : item.category_text[0])
+                    if(item.category_text.count > 1){
+                        CategoryBox(item : item.category_text[1])
+                    }
+                }
                 HStack{
                     Image(systemName: "star.fill").foregroundColor(.yellow)
                     
-                    Text(String(format: "%.1f" ,item.rating)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
+                    Text(String(format: "%.1f" ,item.rating))
                     
-                    Text("\(item.user_ratings_total) รีวิว").foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1))
+//                    Text("(\(item.user_ratings_total) รีวิว)").foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1))
+                    Text("·").foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1))
+                    PriceText(price : item.price_level)
+                    Text("·").foregroundColor(Color(red: 0.682, green: 0.702, blue: 0.745, opacity: 1))
                     
-                }.font(.custom("Sukhumvit Set", size: 12))
+                    Text( item.distance < 1000 ?  "\(String(format: "%.0f",item.distance)) ม."  : "\(String(format: "%.1f", item.distance/1000)) กม.")
+                    
+                }.font(.footnote).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
                 
                 HStack{
-                    Image(systemName: "clock")
+//                    Image(systemName: "clock")
                     
                     Text("\(item.open_now == true ? "เปิดอยู่" : "ปิด")").foregroundColor(item.open_now == true ? Color(red: 0.421, green: 0.754, blue: 0.514) : Color(.red)).bold()
                     
                     Text(" เวลาเปิด \(item.opening_time)")
                     
-                }.font(.custom("Sukhumvit Set", size: 12)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
+                }.font(.footnote).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
                 
-                HStack{
-                    Image(systemName: "phone.fill")
-                    
-                    Text(item.formatted_phone_number)
-                    
-                }.font(.custom("Sukhumvit Set", size: 12)).foregroundColor(Color(red: 0.00, green: 0.13, blue: 0.25, opacity: 1))
-                //
-                //
+//                OptionIcon(option : item.option)
                 
-                
-                //                FavouriteButton(isSet: item.isFavourite)
             }
-        } .frame(width: singleWidth-40, height: 136, alignment: .leading) .cornerRadius(10)
+        } .frame(width: singleWidth * 0.9, height: 136, alignment: .leading) .cornerRadius(10)
         .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke(Color(red: 0.855, green: 0.855, blue: 0.855, opacity: 0.5), lineWidth: 0.5))
         .navigationBarHidden(true)
@@ -60,11 +62,3 @@ struct RestaurantItem: View {
     
     
 }
-
-
-
-//struct RestaurantItem_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RestaurantItem(item: <#T##Restaurant#>)
-//    }
-//}
