@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RandomFilter: View {
     @Binding var didSelectCategory : [Int]
-    @Binding var didSelectPrice : String
+    @Binding var didSelectPrice : [String]
     @Binding var didSelectDistance : Double
     @Binding var clickedEnter : Bool
     var categories = Categories.all()
@@ -33,7 +33,7 @@ struct RandomFilter: View {
                 }
                 
                 Spacer()
-                Text("การค้นหาขั้นสูง").bold()
+                Text("ตั้งค่าการสุ่ม").bold()
                 Spacer()
                 Button(action:{
                     self.didSelectCategory.removeAll()
@@ -133,5 +133,6 @@ struct RandomFilter: View {
                 }
             }.background(Color(red: 0.98, green: 0.98, blue: 0.98).edgesIgnoringSafeArea(.bottom))
         }.statusBar(hidden: true)
+        .navigationBarHidden(true)
     }
 }

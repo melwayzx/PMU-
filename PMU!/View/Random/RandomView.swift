@@ -13,12 +13,14 @@ struct RandomView: View {
     @State private var willMoveToNextScreen = false
     @State var randomList : [Restaurant] = []
     @State var didSelectCategory : [Int] = []
-    @State var didSelectPrice : String = ""
+    @State var didSelectPrice :  [String] = []
     @State var didSelectDistance : Double = 0
+    @State var didSelectOption : [String] = []
+    @State var didSelectOpenNow : Bool = false
     @State var clickedEnter : Bool = false
     @State var shakedDevice : Int = 0
     @State var randomItem : Restaurant?
-    
+    @State var result : [Restaurant] = []
     var restaurantList : [Restaurant]
     
     var body: some View {
@@ -27,7 +29,7 @@ struct RandomView: View {
                 .font(.custom("Sukhumvit Set", size: 30 )).bold().foregroundColor(Color(red: 0, green: 0.133, blue: 0.251))
             
             
-            NavigationLink(destination: RandomFilter(didSelectCategory: $didSelectCategory, didSelectPrice: $didSelectPrice, didSelectDistance: $didSelectDistance, clickedEnter: $clickedEnter) ){
+            NavigationLink(destination: FilterView(Title: "ตั้งค่าการสุ่ม", buttonTitle : "ตกลง" ,didSelectCategory: $didSelectCategory, didSelectPrice: $didSelectPrice, didSelectDistance: $didSelectDistance,  didSelectOption: $didSelectOption , didSelectOpenNow : $didSelectOpenNow, clickedSearch: $clickedEnter) ){
                 Text("ตั้งค่าการสุ่ม")
                     .font(.custom("Sukhumvit Set", size: 14 )).bold().foregroundColor(Color(red: 0, green: 0.133, blue: 0.251))
                     .padding()
@@ -41,7 +43,7 @@ struct RandomView: View {
             }
             
             VStack{
-                if(!randomList.isEmpty){
+                if(!result.isEmpty){
                     NavigationLink(destination: RestaurantDetail(restaurant: randomItem!) ){
                         RandomResult(randomItem : randomItem!)}
                 }
@@ -49,48 +51,70 @@ struct RandomView: View {
             
         }.onShake {
             filterResult()
-            self.randomItem = randomList.randomElement()
+            self.randomItem = result.randomElement()
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         }
+        
         
     }
     
     func filterResult(){
         
+        if(randomList.isEmpty){
+            self.result = restaurantList
+        }else{
+            self.result = randomList
+        }
+        
         if(!didSelectCategory.isEmpty){
-            self.randomList = restaurantList.filter { (restaurant) -> Bool in
-                if (restaurant.category.count > 2 ){
+            self.result = result.filter { (restaurant) -> Bool in
+                if (restaurant.category.count > 1 ){
                     return  didSelectCategory.contains(restaurant.category[0]) || didSelectCategory.contains(restaurant.category[1])
                 }
                 return didSelectCategory.contains(restaurant.category[0])
             }
         }
         
-        if(didSelectPrice != ""){
-            if(randomList.isEmpty){
-                self.randomList = restaurantList.filter{ restaurant -> Bool in
-                    return didSelectPrice == restaurant.price_level || "ไม่ระบุราคา" == restaurant.price_level
-                }
+        if(!didSelectPrice.isEmpty){
+            
+            self.result = result.filter{ restaurant -> Bool in
+                return didSelectPrice.contains(restaurant.price_level)
             }
-            self.randomList = randomList.filter{ restaurant -> Bool in
-                return didSelectPrice == restaurant.price_level || "ไม่ระบุราคา" == restaurant.price_level
-            }
+            
         }
         
         if(didSelectDistance != 0){
-            if(randomList.isEmpty){
-                self.randomList = restaurantList.filter{ restaurant -> Bool in
-                    return didSelectDistance >= restaurant.distance
-                }
-            }
-            self.randomList = randomList.filter{restaurant -> Bool in
+            self.result = result.filter{restaurant -> Bool in
                 return didSelectDistance >= restaurant.distance
             }
         }
         
-        if(didSelectCategory.isEmpty || didSelectPrice == "" || didSelectDistance == 0){
-            self.randomList = restaurantList
+        
+        if(didSelectOption != ["","","","",""]){
+            if(didSelectOption[0] != ""){
+                self.result = result.filter{restaurant -> Bool in return restaurant.option[0]==didSelectOption[0]}
+            }
+            
+            if(didSelectOption[1] != ""){
+                self.result = result.filter{restaurant -> Bool in return restaurant.option[1]==didSelectOption[1]}
+            }
+            
+            if(didSelectOption[2] != ""){
+                self.result = result.filter{restaurant -> Bool in return restaurant.option[2]==didSelectOption[2]}
+            }
+            
+            if(didSelectOption[3] != ""){
+                self.result = result.filter{restaurant -> Bool in return restaurant.option[3]==didSelectOption[3]}
+            }
+            
         }
+        
+        if(!didSelectOpenNow){
+            self.result = result.filter{restaurant -> Bool in
+                return restaurant.open_now == true
+            }
+        }
+        
     }
 }
 
