@@ -43,18 +43,19 @@ struct Restaurant: Decodable , Identifiable{
     var category : [Int]
     var category_text : [String]
     var place_id : String
+    var option : [String]
 
 }
 
 struct opening_hours : Decodable{
     var open_now : Bool
-    var periods : [period]?
+    var periods : [period]
     var weekday_text : [String]?
     
 }
 
 struct period : Decodable{
-    var close : close
+    var close : close?
     var open : open
 }
 
