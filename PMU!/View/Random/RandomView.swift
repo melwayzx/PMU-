@@ -9,13 +9,14 @@ import SwiftUI
 import UIKit
 import AudioToolbox
 
+
 struct RandomView: View {
     @State private var willMoveToNextScreen = false
     @State var randomList : [Restaurant] = []
     @State var didSelectCategory : [Int] = []
     @State var didSelectPrice :  [String] = []
     @State var didSelectDistance : Double = 0
-    @State var didSelectOption : [String] = []
+    @State var didSelectOption : [String] = ["","","","",""]
     @State var didSelectOpenNow : Bool = false
     @State var clickedEnter : Bool = false
     @State var shakedDevice : Int = 0
@@ -26,12 +27,12 @@ struct RandomView: View {
     var body: some View {
         VStack{
             Text("สุ่มร้านอาหาร")
-                .font(.custom("Sukhumvit Set", size: 30 )).bold().foregroundColor(Color(red: 0, green: 0.133, blue: 0.251))
+                .font(.title).bold().foregroundColor(Color(red: 0, green: 0.133, blue: 0.251))
             
             
             NavigationLink(destination: FilterView(Title: "ตั้งค่าการสุ่ม", buttonTitle : "ตกลง" ,didSelectCategory: $didSelectCategory, didSelectPrice: $didSelectPrice, didSelectDistance: $didSelectDistance,  didSelectOption: $didSelectOption , didSelectOpenNow : $didSelectOpenNow, clickedSearch: $clickedEnter) ){
                 Text("ตั้งค่าการสุ่ม")
-                    .font(.custom("Sukhumvit Set", size: 14 )).bold().foregroundColor(Color(red: 0, green: 0.133, blue: 0.251))
+                    .font(.callout).bold().foregroundColor(Color(red: 0, green: 0.133, blue: 0.251))
                     .padding()
                     .cornerRadius(40)
                     .foregroundColor(.white)
@@ -46,6 +47,19 @@ struct RandomView: View {
                 if(!result.isEmpty){
                     NavigationLink(destination: RestaurantDetail(restaurant: randomItem!) ){
                         RandomResult(randomItem : randomItem!)}
+                    
+                    Text("เขย่าเพื่อสุ่มอีกครั้ง")
+                        .font(.body)
+                        .fontWeight(.semibold)
+                        .foregroundColor( Color(red: 0.00, green: 0.13, blue: 0.25))
+                        
+                
+                }else{
+                    LottieView(name : "4762-food-carousel").frame(width:300 , height : 300).padding()
+                    Text("เขย่าเพื่อสุ่มร้านอาหาร")
+                        .font(.body)
+                        .fontWeight(.semibold)
+                        .foregroundColor( Color(red: 0.00, green: 0.13, blue: 0.25))
                 }
             }
             
@@ -107,9 +121,13 @@ struct RandomView: View {
                 self.result = result.filter{restaurant -> Bool in return restaurant.option[3]==didSelectOption[3]}
             }
             
+            if(didSelectOption[4] != ""){
+                self.result = result.filter{restaurant -> Bool in return restaurant.option[4]==didSelectOption[4]}
+            }
+            
         }
         
-        if(!didSelectOpenNow){
+        if(didSelectOpenNow){
             self.result = result.filter{restaurant -> Bool in
                 return restaurant.open_now == true
             }
